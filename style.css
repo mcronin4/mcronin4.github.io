@@ -1,0 +1,83 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Lato', 'Arial', sans-serif;
+    color: #F7F7F7;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+/* Header */
+#header {
+    position: fixed;
+    width: 100%;
+    background-color: #263238;
+    color: #F7F7F7;
+    font-size: 25px;
+    z-index: 10;
+}
+
+#flex-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+}
+
+#flex-header a {
+    flex-grow: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #F7F7F7;
+    padding: 10px;
+}
+
+.button:hover,
+.button:active {
+    background-size: 100% 3px, auto;
+}
+
+/* Sections */
+.section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#namepage {
+    background-color: #5ea7c9;
+}
+
+.aboutme, .projects, .work-experience, .contactme {
+    background-color: #a75757;
+}
+
+/* Specific Section Styling */
+#namepage-title, .aboutmeheader, .projectsheader, .work-experienceheader, .contactmeheader {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.aboutmebody, .projectsbody, .work-experiencebody, .contactmebody {
+    text-align: center;
+}
+
+.profile-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+

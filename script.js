@@ -1,88 +1,49 @@
-/* global $ */
-/* global document */
-/* global window */
-/* eslint-env jquery */
+
 
 $(document).ready(function() {
+    function smoothScroll(targetClass, duration) {
+        $('html, body').animate({scrollTop: $(targetClass).offset().top}, duration);
+    }
 
     $('.js--scroll-to-projects').click(function() {
-        $('html, body').animate({scrollTop: $('.js--projects').offset().top}, 1000);
-    })
+        smoothScroll('.js--projects', 1000);
+    });
 
     $('.js--scroll-to-aboutme').click(function() {
-        $('html, body').animate({scrollTop: $('.js--aboutme').offset().top}, 1500);
-    })
+        smoothScroll('.js--aboutme', 1000);
+    });
 
     $('.js--scroll-to-contactme').click(function() {
-        $('html, body').animate({scrollTop: $('.js--contactme').offset().top}, 2000);
-    })
+        smoothScroll('.js--contactme', 1000);
+    });
 
-
-    //modal stuff
-    // Get the modal
+    // Modal functionality
     var modals = document.getElementsByClassName("modal");
+    var btns = document.getElementsByClassName("project");
+    var spans = document.getElementsByClassName("close");
 
-    // Get the button that opens the modal
-    var btn = document.getElementsByClassName("project");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close");
-
-    // When the user clicks the button, open the modal
-    btn[0].onclick = function() {
-        modals[0].style.display = "block";
-    }
-    btn[1].onclick = function() {
-        modals[1].style.display = "block";
-    }
-    btn[2].onclick = function() {
-        modals[2].style.display = "block";
-    }
-    btn[3].onclick = function() {
-        modals[3].style.display = "block";
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].onclick = function() {
+            modals[i].style.display = "block";
+        }
+        spans[i].onclick = function() {
+            modals[i].style.display = "none";
+        }
     }
 
-    // When the user clicks on <span> (x), close the modal
-    span[0].onclick = function() {
-        modals[0].style.display = "none";
-    }
-    span[1].onclick = function() {
-        modals[1].style.display = "none";
-    }
-    span[2].onclick = function() {
-        modals[2].style.display = "none";
-    }
-    span[3].onclick = function() {
-        modals[3].style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        for (var i = 0; i < modals.length; i++) {
+        for (let i = 0; i < modals.length; i++) {
             if (event.target == modals[i]) {
                 modals[i].style.display = "none";
             }
         }
     }
-})
 
-var cards = document.getElementsByClassName("card");
-
-cards[0].addEventListener( 'click', function() {
-    cards[0].classList.toggle('is-flipped');
-});
-cards[1].addEventListener( 'click', function() {
-    cards[1].classList.toggle('is-flipped');
-});
-cards[2].addEventListener( 'click', function() {
-    cards[2].classList.toggle('is-flipped');
-});
-cards[3].addEventListener( 'click', function() {
-    cards[3].classList.toggle('is-flipped');
-});
-cards[4].addEventListener( 'click', function() {
-    cards[4].classList.toggle('is-flipped');
-});
-cards[5].addEventListener( 'click', function() {
-    cards[5].classList.toggle('is-flipped');
+    // Card flip functionality
+    var cards = document.getElementsByClassName("card");
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].addEventListener('click', function() {
+            cards[i].classList.toggle('is-flipped');
+        });
+    }
 });
