@@ -1,8 +1,8 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 html, body {
@@ -16,34 +16,35 @@ body {
     scroll-behavior: smooth;
 }
 
+/* #main-page {
+    width: 100%;
+    height: 100%;
+} */
+
 /* Header */
-#header {
+.header {
     position: fixed;
     width: 100%;
-    background-color: #263238;
+    background-color: #010812;
     color: #F7F7F7;
-    font-size: 25px;
+    font-size: 20px;
     z-index: 10;
+    /* height: 7vh;
+    margin-top: 1vh; */
+    overflow: hidden;
 }
 
-#flex-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 7vh;
-}
-
-#flex-header a {
+.header a {
     flex-grow: 1;
-    text-align: center;
     text-decoration: none;
     color: #F7F7F7;
-    padding: 10px;
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
 }
 
-.button:hover,
-.button:active {
-    background-size: 100% 3px, auto;
+.header a.right {
+    float: right;
 }
 
 /* Sections */
@@ -57,18 +58,55 @@ body {
 }
 
 #namepage {
-    background-color: #5ea7c9;
+    height: 100vh;
+    background-image: url("backgroundimage2.jpg");
+    background-size: 100% 100%;
+    background-color: #263238;
+    color: #F7F7F7;
+    font-weight: 900;   
+    text-align: center;
+    padding-top: 45vh;
+    padding-bottom: 50vh;
 }
 
+#namepage-title {
+    font-size: 60px;
+    font-weight: 900;
+    border-radius: 3px;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+.button {
+    color: #F7F7F7;
+    text-align: center;
+    text-decoration: none;
+    padding: 3px;
+    background-image: linear-gradient(#001938, #2db6fb);
+    background-size: 0 3px, auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    border-radius: 5%;
+    transition: all .5s cubic-bezier(0,.8,.37,.96);
+    margin: auto;
+}
+
+.button:hover,
+.button:active {
+    background-size: 100% 3px, auto;
+}
+
+
 .aboutme, .projects, .work-experience, .contactme {
-    background-color: #a75757;
+    background-color: #000c26;
 }
 
 /* Specific Section Styling */
-#namepage-title, .aboutmeheader, .projectsheader, .work-experienceheader, .contactmeheader {
+.aboutmeheader, .projectsheader, .work-experienceheader, .contactmeheader {
     font-size: 2em;
-    margin-bottom: 20px;
+    
     text-align: center;
+    background-color: #000c26;
 }
 
 .aboutmebody, .projectsbody, .work-experiencebody, .contactmebody {
@@ -76,8 +114,31 @@ body {
 }
 
 .profile-photo {
-    max-width: 100%;
+    max-width: 20%;
     height: auto;
     border-radius: 50%;
 }
+
+hr {
+    visibility: hidden;
+    height:7vh;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  .column {
+    flex: 33%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 50vh;
+    height: 50vh;
+  }
 

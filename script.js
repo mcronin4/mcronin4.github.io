@@ -1,12 +1,31 @@
-
+/* global $ */
+/* global document */
+/* global window */
+/* eslint-env jquery */
 
 $(document).ready(function() {
+
+    var options = {
+        strings: ['Hi,    I\'m Michael.          I love to learn.'],
+        typeSpeed: 100
+      };
+      
+    var typed = new Typed('#typename', options);
+
     function smoothScroll(targetClass, duration) {
         $('html, body').animate({scrollTop: $(targetClass).offset().top}, duration);
     }
 
+    $('.js--scroll-to-michaelcronin').click(function() {
+        smoothScroll('.js--michaelcronin', 1000);
+    });
+
     $('.js--scroll-to-projects').click(function() {
         smoothScroll('.js--projects', 1000);
+    });
+
+    $('.js--scroll-to-work-experience').click(function() {
+        smoothScroll('.js--work-experience', 1000);
     });
 
     $('.js--scroll-to-aboutme').click(function() {
@@ -22,14 +41,14 @@ $(document).ready(function() {
     var btns = document.getElementsByClassName("project");
     var spans = document.getElementsByClassName("close");
 
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].onclick = function() {
-            modals[i].style.display = "block";
-        }
-        spans[i].onclick = function() {
-            modals[i].style.display = "none";
-        }
-    }
+    // for (let i = 0; i < btns.length; i++) {
+    //     btns[i].onclick = function() {
+    //         modals[i].style.display = "block";
+    //     }
+    //     spans[i].onclick = function() {
+    //         modals[i].style.display = "none";
+    //     }
+    // }
 
     window.onclick = function(event) {
         for (let i = 0; i < modals.length; i++) {

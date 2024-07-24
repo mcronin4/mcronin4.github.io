@@ -8,35 +8,42 @@
     </head>
 
     <body>
-        <div id="main_page">
-            <div id="header">
-                <div id="flex-header">
-                    <p></p>
-                    <a class="button js--scroll-to-aboutme" href="#">
-                        <strong>About Me</strong>
-                    </a>
-                    <p></p>
-                    <a class="button js--scroll-to-projects" href="#">
-                        <strong>Projects</strong>
-                    </a>
-                    <p></p>
-                    <a class="button js--scroll-to-work-experience" href="#">
-                        <strong>Work Experience</strong>
-                    </a>
-                    <p></p>
-                    <a class="button js--scroll-to-contactme" href="#">
-                        <strong>Contact Me</strong>
-                    </a>
-                    <p></p>
-                </div>
+        <div id="main_page" class="michaelcronin js--michaelcronin">
+            <div class="header">
+                <a class="button js--scroll-to-michaelcronin" href="#">
+                    <strong>Michael Cronin</strong>
+                </a>
+                <a class="right button js--scroll-to-contactme" href="#">
+                    <strong>Contact</strong>
+                </a>
+                <a class="right button js--scroll-to-work-experience" href="#">
+                    <strong>Work</strong>
+                </a>
+                <a class="right button js--scroll-to-projects" href="#">
+                    <strong>Projects</strong>
+                </a>
+                <a class="right button js--scroll-to-aboutme" href="#">
+                    <strong>About</strong>
+                </a>
+                
+                
+                
             </div>
             <div id="namepage">
                 <div id="namepage-title">
-                    <strong>Michael Cronin</strong>
+                    <strong id="typename"></strong>
                 </div>
-                <div id="namepage-sub">
-                    Applied Mathematics and Computer Engineering at Queen's University
-                </div>
+            </div>
+        </div>
+
+        <div class="aboutme js--aboutme">
+            <hr>
+            <div class="aboutmeheader">
+                <strong>About Me</strong>
+            </div>
+            <div class="aboutmebody">
+                <img src="headshot.jpg" alt="Michael Cronin" class="profile-photo">
+                <p>Motivated by problem-solving and innovation. Living in Toronto, Canada. Skilled in JavaScript, Python, React, and more.</p>
             </div>
             <div id="footer">
                 <a class="button headerresumetext" href="#">
@@ -45,29 +52,49 @@
             </div>
         </div>
 
-        <div class="aboutme js--aboutme">
-            <div class="aboutmeheader">
-                <strong>About Me</strong>
-            </div>
-            <div class="aboutmebody">
-                <img src="your-photo.jpg" alt="Michael Cronin" class="profile-photo">
-                <p>Motivated by problem-solving and innovation. Living in Toronto, Canada. Skilled in JavaScript, Python, React, and more.</p>
-            </div>
-        </div>
-
         <div class="projects js--projects">
+            <hr>
             <div class="projectsheader">
                 <strong>Projects</strong>
             </div>
             <div class="projectsbody">
+
+                I build projects as a way to learn. I find that there is no better way to learning concepts than getting my hands dirty.
+                <br>
+                Depending on what skills/frameworks I want to learn, I will often focus on a specific part of a project to build out over others.
+                <br>
+                There are many more projects to come.
+                <div class = "row">
+                    <div class="column">
+                        <img src="headshot.jpg">
+                    </div>
+                    <div class="column">
+                        <img src="headshot.jpg">
+                    </div>
+                    <div class="column">
+                        <img src="headshot.jpg">
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class="column">
+                        <img src="headshot.jpg">
+                    </div>
+                    <div class="column">
+                        <img src="headshot.jpg">
+                    </div>
+                    <div class="column">
+                        <img src="headshot.jpg">
+                    </div> 
+                </div>
                 <div class="project" id="project1">
-                    <img src="project1.jpg" alt="Project 1">
+                    <img src="backgroundimage.jpg" alt="Project 1">
                     <p>Project 1 Description <a href="https://github.com/yourusername/project1" target="_blank">GitHub</a></p>
                 </div>
             </div>
         </div>
 
         <div class="work-experience js--work-experience">
+            <hr>
             <div class="work-experienceheader">
                 <strong>Work Experience</strong>
             </div>
@@ -80,16 +107,46 @@
         </div>
         
         <div class="contactme js--contactme">
+            <hr>
             <div class="contactmeheader">
                 <strong>Contact Me</strong>
             </div>
             <div class="contactmebody">
-                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-                <p>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+                <p>Email: <a href="mailto:michael.cronin@queensu.ca">michael.cronin@queensu.ca</a></p>
+                <p>GitHub: <a href="https://github.com/mcronin4" target="_blank">mcronin4</a></p>
             </div>
         </div>
-
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script src="script.js"></script>
+
+
     </body>   
 </html>
+
+ <!-- <div id="flex-header">
+    <a class="button js--scroll-to-michaelcronin" id="left-header" href="#">
+        <strong>Michael Cronin</strong>
+    </a>
+    
+    <div id="right-headers">
+        <p></p>
+        <a class="button js--scroll-to-aboutme" href="#">
+            <strong>About</strong>
+        </a>
+        <p></p>
+        <a class="button js--scroll-to-projects" href="#">
+            <strong>Projects</strong>
+        </a>
+        <p></p>
+        <a class="button js--scroll-to-work-experience" href="#">
+            <strong>Work</strong>
+        </a>
+        <p></p>
+        <a class="button js--scroll-to-contactme" href="#">
+            <strong>Contact</strong>
+        </a>
+        <p></p>
+    </div>
+</div> -->
 
