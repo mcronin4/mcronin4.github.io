@@ -6,7 +6,7 @@
 $(document).ready(function() {
 
     var options = {
-        strings: ['Hi,    I\'m Michael.          I love to learn.'],
+        strings: ['Hi,    I\'m Michael.          I like to solve problems.'],
         typeSpeed: 100
       };
       
@@ -41,14 +41,21 @@ $(document).ready(function() {
     var btns = document.getElementsByClassName("project");
     var spans = document.getElementsByClassName("close");
 
-    // for (let i = 0; i < btns.length; i++) {
-    //     btns[i].onclick = function() {
-    //         modals[i].style.display = "block";
-    //     }
-    //     spans[i].onclick = function() {
-    //         modals[i].style.display = "none";
-    //     }
-    // }
+    btns[0].onclick = function() {
+        modals[0].style.display = "block";
+    }
+    spans[0].onclick = function() {
+        modals[0].style.display = "none";
+    }
+
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].onclick = function() {
+            modals[i].style.display = "block";
+        }
+        spans[i].onclick = function() {
+            modals[i].style.display = "none";
+        }
+    }
 
     window.onclick = function(event) {
         for (let i = 0; i < modals.length; i++) {
