@@ -140,7 +140,7 @@ hr {
   .column img {
     margin-top: 8px;
     vertical-align: middle;
-    width: 50vh;
+    width: 35vh;
     height: 35vh;
   }
 
@@ -215,7 +215,7 @@ hr {
   .detail > img {
     position: relative;
     /* z-index: 1; */
-    width: 50vh;
+    width: 35vh;
     height: 35vh;
   }
   
