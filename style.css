@@ -100,15 +100,28 @@ body {
 
 
 .aboutme, .projects, .work-experience, .contactme {
-    background-color: #000c26;
+  /* background-color: #000c26; */
+  background: 
+      radial-gradient(farthest-side at -33.33% 50%,#0000 52%,#091739 54% 57%,#0000 59%) 0 calc(88px/2),
+      radial-gradient(farthest-side at 50% 133.33%,#0000 52%,#091739 54% 57%,#0000 59%) calc(88px/2) 0,
+      radial-gradient(farthest-side at 133.33% 50%,#0000 52%,#091739 54% 57%,#0000 59%),
+      radial-gradient(farthest-side at 50% -33.33%,#0000 52%,#091739 54% 57%,#0000 59%),
+      #000c26;
+background-size: calc(88px/4.667) 88px,88px calc(88px/4.667);
+
+  /* background-size: 20px 35px;
+  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px; */
 }
 
 /* Specific Section Styling */
-.aboutmeheader, .projectsheader, .work-experienceheader, .contactmeheader {
+.aboutmeheader, .projectsheader, .work-experienceheader, .contactmeheader, .skillsheader {
     font-size: 2em;
     
     text-align: center;
-    background-color: #000c26;
+    /* background-color: #000c26;
+    opacity: 1;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #000c26 12px ), repeating-linear-gradient( #3a3e8755, #3a3e87 );
+} */
 }
 
 .aboutmebody, .projectsbody, .work-experiencebody, .contactmebody {
@@ -153,53 +166,12 @@ hr {
     height: 35vh;
   }
 
-  /* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
+
+  .glow:hover {
     cursor: pointer;
   }
 
-  .project:hover {
-    cursor: pointer;
-  }
-
-
-
-
-
-  .project {
+  .glow {
     cursor: pointer;
     font-size: 0;
   }
@@ -229,7 +201,7 @@ hr {
   }
   
   .detail .content {
-    background: #263238;
+    background: #000c26;
     padding: 2rem 1.5rem;
     font-size: 1rem;
     box-sizing: border-box;
@@ -295,7 +267,7 @@ hr {
     padding: 16px 16px 16px 16px;
     border-radius: 15px;
     position: relative;
-    transition: box-shadow .25s;
+    
     height: 68.5vh;
     margin-left: 25px;
     margin-right: 25px;
@@ -310,7 +282,7 @@ hr {
   
     .icon {
       z-index: 2;
-      position: relative;
+      position: relative;transition: box-shadow .25s;
       display: table;
       padding: 8px;
   
@@ -672,5 +644,87 @@ hr {
   .mid {
     height: 30vh;
   }
+
+  .contactme {
+    background: 
+      radial-gradient(farthest-side at -33.33% 50%,#0000 52%,#091739 54% 57%,#0000 59%) 0 calc(88px/2),
+      radial-gradient(farthest-side at 50% 133.33%,#0000 52%,#091739 54% 57%,#0000 59%) calc(88px/2) 0,
+      radial-gradient(farthest-side at 133.33% 50%,#0000 52%,#091739 54% 57%,#0000 59%),
+      radial-gradient(farthest-side at 50% -33.33%,#0000 52%,#091739 54% 57%,#0000 59%),
+      #000c26;
+    background-size: calc(88px/4.667) 88px,88px calc(88px/4.667)-gradient(circle, rgba(0,12,38,1) 0%, rgba(45,60,93,1) 35%, rgba(0,12,38,1) 100%);
+    height: 196px;
+}
+
+.contactmeheader {
+    color: #f7f7f7;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 35vw;
+    margin-right: 35vw;
+    border-bottom: 3px solid #f7f7f7;
+    border-radius: 3px;
+
+}
+
+.headerresumetext {
+    padding-bottom: 10px;
+}
+
+.contactmebody1 {
+    float: left;
+    margin-left: 10px;
+    margin-top: 36px;
+}
+
+.contactmebody2 {
+    text-align: right;
+    float: right;
+    margin-right: 10px;
+    margin-top: 36px;
+}
+
+.contactmegitlink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contactmeimg1 {
+    float: left;
+    margin-left: 10px;
+    height: 75%;
+    border-radius: 50%;
+}
+
+.contactmeimg2 {
+    float: right;
+    margin-right: 10px;
+    height: 75%;
+    border-radius: 50%;
+}
+
+.glow:hover {
+  box-shadow:
+    0 0 20px 10px #5250d2,  /* inner white */
+    0 0 30px 20px rgb(7, 40, 89), /* middle magenta */
+    0 0 40px 30px #000c26; /* outer cyan */
+}
+
+.glow {
+  box-shadow:
+    0 0 5px 5px #fff;  /* inner white */
+  border-radius: 15px;
+  transition: box-shadow 0.5s;
+}
+
+.tocenter {
+  display: flex;
+  justify-content: center;
+  width: 7vw;
+  font-size: 1.25vw
+
+}
 
   
