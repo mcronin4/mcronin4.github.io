@@ -326,7 +326,7 @@ hr {
       z-index: 2;
       position: relative;
       margin: 0;
-      font-size: 1.6vmin;
+      font-size: 1.5vmin;
       line-height: 1.7;
       color: var(--text-color);
       overflow: auto;
@@ -336,7 +336,7 @@ hr {
       z-index: 2;
       position: relative;
       margin-left: 18px;
-      font-size: 1.6vmin;
+      font-size: 1.5vmin;
       line-height: 1.7;
       color: var(--text-color);
     }
@@ -742,7 +742,8 @@ hr {
 
   li {
     margin-right: 10px;
-    
+    z-index: 0;
+    text-indent:10px;
 
   }
 
@@ -758,12 +759,12 @@ hr {
     position: relative;
     color: white;
     border-radius: 5px;
+    
 }
 ul li::before,
 ul li::after {
     content: "";
     position: absolute;
-    /* z-index: -1; */
     border-radius: 5px;
     width: 105%;
     transition: all 0.4s;
@@ -771,14 +772,16 @@ ul li::after {
 ul li::before {
     left: 0%;
     height: 130%;
-    background: linear-gradient(to right, #021B79, #0575E6);
+    background: linear-gradient(to right, #000c26, #0575E6);
+    z-index: -2;
 }
 ul li::after {
     left: -10%;
     height: 120%;
-    background: #ffffff56;
+    background: #1f17ba56;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.164);
+    z-index: -1;
 }
 ul li:hover::before {
     transform: translateX(-2.5%);
