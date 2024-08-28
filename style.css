@@ -17,7 +17,8 @@ body {
 }
 
 .fullpage {
-    width: 100%;
+  height : 100%;
+  width: 100%;
 }
 
 /* Header */
@@ -48,7 +49,7 @@ body {
 
 /* Sections */
 .section {
-    /* height: 100%; */
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -189,13 +190,14 @@ hr {
     display: flex;
     flex-direction: column;
     visibility: hidden;
-    /* max-height: 100%; */
+    max-height: 100%;
     overflow: auto;
+    z-index: 10;
   }
   
   .detail > img {
     position: relative;
-    /* z-index: 1; */
+    z-index: 10;
     width: 35vh;
     height: 35vh;
   }
@@ -206,6 +208,7 @@ hr {
     font-size: 1rem;
     box-sizing: border-box;
     flex-grow: 1;
+    z-index: 10;
   }
   
   .detail .content > * {
@@ -271,7 +274,7 @@ hr {
     height: 68.5vh;
     margin-left: 25px;
     margin-right: 25px;
-    /* overflow: auto; */
+    overflow: auto;
   
     &::before {
       content: '';
@@ -794,10 +797,44 @@ ul li:hover::after {
 
 
 .job {
-  width: 20vw;
-  justify-content: center;
-  height: 10vw;
+  height: 60vh;
   position: relative;
+
+  h2 {
+    z-index: 2;
+    position: relative;
+    margin: 0 0 4px 0;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.2vw;
+    line-height: 1.5;
+    color: var(--card-label-color);
+  }
+  h3 {
+    z-index: 2;
+    position: relative;
+    margin: 0 0 4px 0;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 0.9vw;
+    line-height: 1.5;
+    color: var(--card-label-color);
+  }
+  h4 {
+    z-index: 2;
+    position: relative;
+    margin: 0 0 4px 0;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 0.8vw;
+    line-height: 1.5;
+    color: var(--card-label-color);
+  }
+  p, ul {
+    text-align: left;
+  }
+
+
 }
 
 .reveal {
@@ -809,13 +846,13 @@ ul li:hover::after {
   opacity: 1;
 }
 .active.fade-bottom {
-  animation: fade-bottom 1s ease-in;
+  animation: fade-bottom 0.75s ease-in;
 }
 .active.fade-left {
-  animation: fade-left 1s ease-in;
+  animation: fade-left 0.75s ease-in;
 }
 .active.fade-right {
-  animation: fade-right 1s ease-in;
+  animation: fade-right 0.5s ease-in;
 }
 @keyframes fade-bottom {
   0% {

@@ -5,6 +5,26 @@
 
 $(document).ready(function() {
 
+    function reveal() {
+        console.log("Scrolled!");
+        var reveals = document.querySelectorAll(".reveal");
+        
+      
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 50;
+      
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          } else {
+            reveals[i].classList.remove("active");
+          }
+        }
+    }
+
+    window.addEventListener("scroll", reveal, {passive: true});
+
     const items = gsap.utils.toArray(".project"),
       details = document.querySelector('.detail'),
       detailContent = document.querySelector('.content'),
@@ -18,9 +38,9 @@ $(document).ready(function() {
     gsap.set(detailContent, { yPercent: -100 }); // close the details "drawer" (content) initially
 
     function showDetails(item) {
-    if (activeItem) { // someone could click on an element behind the open details panel in which case we should just close it.
-        return hideDetails();
-    }
+        if (activeItem) { // someone could click on an element behind the open details panel in which case we should just close it.
+            return hideDetails();
+        }
     let onLoad = () => {
 
         // position the details on top of the item (scaled down)
@@ -43,28 +63,12 @@ $(document).ready(function() {
         .to(detailContent, {yPercent: 0}, 0.2);
 
         detailImage.removeEventListener("load", onLoad);
-        window.addEventListener('click', hideDetails);
+        document.addEventListener('click', hideDetails);
     };
 
-    function reveal() {
-        console.log("Scrolled!");
-        var reveals = document.querySelectorAll(".reveal");
-        
+    
       
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals[i].getBoundingClientRect().top;
-          var elementVisible = 150;
-      
-          if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-          } else {
-            reveals[i].classList.remove("active");
-          }
-        }
-    }
-      
-    window.addEventListener("scroll", reveal, {passive: true});
+
 
 
     // Change image and text
@@ -82,32 +86,32 @@ $(document).ready(function() {
     }
 
     function hideDetails() {
-    document.removeEventListener('click', hideDetails);
-    gsap.set(details, {overflow: "hidden"});
+        document.removeEventListener('click', hideDetails);
+        gsap.set(details, {overflow: "hidden"});
 
-    // record the current state of details
-    const state = Flip.getState(details);
+        // record the current state of details
+        const state = Flip.getState(details);
 
-    // scale details down so that its detailImage fits exactly on top of activeItem
-    Flip.fit(details, activeItem, {scale: true, fitChild: detailImage});
+        // scale details down so that its detailImage fits exactly on top of activeItem
+        Flip.fit(details, activeItem, {scale: true, fitChild: detailImage});
 
-    // animate the other elements, like all fade all items back up to full opacity, slide the detailContent away, and tween the background color to white.
-    const tl = gsap.timeline();
-    tl.set(details, {overflow: "hidden"})
-        .to(detailContent, {yPercent: -100})
-        .to(items, {opacity: 1, stagger: {amount: 0.7, from: items.indexOf(activeItem), grid: "auto"}})
-        //.to(".js--projects", {backgroundColor: "#fff"}, "<");
+        // animate the other elements, like all fade all items back up to full opacity, slide the detailContent away, and tween the background color to white.
+        const tl = gsap.timeline();
+        tl.set(details, {overflow: "hidden"})
+            .to(detailContent, {yPercent: -100})
+            .to(items, {opacity: 1, stagger: {amount: 0.7, from: items.indexOf(activeItem), grid: "auto"}})
+            //.to(".js--projects", {backgroundColor: "#fff"}, "<");
 
-    // animate from the original state to the current one.
-    Flip.from(state, {
-        scale: true,
-        duration: 0.5,
-        delay: 0.2, // 0.2 seconds because we want the details to slide up first, then flip.
-        onInterrupt: () => tl.kill()
-    })
-        .set(details, {visibility: "hidden"});
+        // animate from the original state to the current one.
+        Flip.from(state, {
+            scale: true,
+            duration: 0.5,
+            delay: 0.2, // 0.2 seconds because we want the details to slide up first, then flip.
+            onInterrupt: () => tl.kill()
+        })
+            .set(details, {visibility: "hidden"});
 
-    activeItem = null;
+        activeItem = null;
     }
 
     // Add click listeners
