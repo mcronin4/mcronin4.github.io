@@ -75,9 +75,9 @@ $(document).ready(function() {
     const data = item.dataset;
     detailImage.addEventListener("load", onLoad);
     detailImage.src = item.querySelector('img').src;
-    detailTitle.innerText = data.title;
-    detailSecondary.innerText = data.secondary;
-    detailDescription.innerText = data.text;
+    detailTitle.innerHTML = data.title;
+    detailSecondary.innerHTML = data.secondary;
+    detailDescription.innerHTML = data.text;
 
     // stagger-fade the items out from the one that was selected in a staggered way (and kill the tween of the selected item)
     gsap.to(items, {opacity: 0.3, stagger: { amount: 0.7, from: items.indexOf(item), grid: "auto"}}).kill(item);
