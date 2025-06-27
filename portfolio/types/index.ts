@@ -10,6 +10,7 @@ export interface Project {
   imageUrl: string;
   category: 'web' | 'ml' | 'mobile' | 'research' | 'other';
   featured: boolean;
+  year: string;
 }
 
 export interface Experience {

@@ -23,8 +23,11 @@ export default function HeroSection() {
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage: 'url(/backgroundimage2.jpg)',
-        backgroundSize: '100% 100%',
-        backgroundColor: '#263238'
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundColor: '#263238',
+        width: '100vw',
+        marginLeft: 'calc(-50vw + 50%)'
       }}
     >
       {/* Dark overlay for better text readability */}

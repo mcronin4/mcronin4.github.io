@@ -21,9 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen bg-slate-900 text-white">
         <Navbar />
-        <main>
-          {children}
-        </main>
+        <div className="flex justify-center w-full">
+          <main className="w-full max-w-screen-2xl">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );

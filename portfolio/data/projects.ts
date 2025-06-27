@@ -14,7 +14,8 @@ Key features include embedding-driven "For-You" feeds that learn from user behav
     githubUrl: '', // Add if available
     imageUrl: '/news-platform.jpg', // You can add an image later
     category: 'ml',
-    featured: true
+    featured: true,
+    year: '2025'
   },
   {
     id: 'llm-jailbreak-defense',
@@ -31,7 +32,8 @@ The work culminated in a peer-reviewed paper co-authored and published at CUCAI 
     githubUrl: '', // Add if available
     imageUrl: '/llm-defense.jpg', // You can add an image later
     category: 'research',
-    featured: true
+    featured: true,
+    year: '2024-2025'
   },
   {
     id: 'chameleon-ai-content',
@@ -52,7 +54,8 @@ The project demonstrates exceptional engineering skills by delivering a producti
     demoUrl: 'https://youtu.be/lXXtfYojx7E',
     imageUrl: '/chameleon-ai.jpg', // You can add an image later
     category: 'ml',
-    featured: true
+    featured: true,
+    year: '2025'
   },
   {
     id: 'portfolio-website',
@@ -72,7 +75,8 @@ Additional features include animated navbar with hover effects, project cards wi
     liveUrl: 'https://mcronin4.github.io',
     imageUrl: '/portfolio-website.jpg', // You can add a screenshot later
     category: 'web',
-    featured: false
+    featured: false,
+    year: '2024-2025'
   },
   {
     id: 'crossword-solver',
@@ -83,7 +87,8 @@ Additional features include animated navbar with hover effects, project cards wi
     githubUrl: 'https://github.com/mcronin4/Crossword_Solver_RNN_Extension',
     imageUrl: '/crossword.jpg',
     category: 'ml',
-    featured: false
+    featured: false,
+    year: '2024'
   },
   {
     id: 'homebase',
@@ -94,7 +99,8 @@ Additional features include animated navbar with hover effects, project cards wi
     githubUrl: 'https://github.com/mcronin4/homebase',
     imageUrl: '/homebase.jpg',
     category: 'web',
-    featured: false
+    featured: false,
+    year: '2023'
   },
   {
     id: 'crane-controller',
@@ -104,7 +110,8 @@ Additional features include animated navbar with hover effects, project cards wi
     technologies: ['Arduino', 'SOLIDWORKS', 'Python', 'MATLAB'],
     imageUrl: '/crane.jpg',
     category: 'other',
-    featured: false
+    featured: false,
+    year: '2024'
   },
   {
     id: 'system-controller',
@@ -114,7 +121,8 @@ Additional features include animated navbar with hover effects, project cards wi
     technologies: ['MATLAB', 'Fourier Analysis', 'Simulink', 'PID Control'],
     imageUrl: '/controller.jpg',
     category: 'research',
-    featured: false
+    featured: false,
+    year: '2023'
   },
   {
     id: 'hurricane-drone-simulation',
@@ -124,7 +132,8 @@ Additional features include animated navbar with hover effects, project cards wi
     technologies: ['MATLAB', 'k-means clustering', 'Lloyd\'s Algorithm'],
     imageUrl: '/hurricane.jpg',
     category: 'research',
-    featured: false
+    featured: false,
+    year: '2022'
   }
 ];
 
