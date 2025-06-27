@@ -7,9 +7,9 @@ import { useTypewriter } from '../../hooks/useTypewriter';
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
   const { displayedText, isTyping } = useTypewriter({
-    text: "Hi I'm Michael. I like to solve problems",
-    speed: 50,
-    delay: 500
+    text: "Hi,    I'm Michael.        I like to solve problems.",
+    speed: 100,
+    delay: 50
   });
 
   useEffect(() => {
