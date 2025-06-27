@@ -43,6 +43,8 @@ export interface PersonalInfo {
     degree: string;
     school: string;
     description: string;
+    gpa: string;
+    relevantCourses: string[];
   };
   hobbies: string[];
   awards: string[];

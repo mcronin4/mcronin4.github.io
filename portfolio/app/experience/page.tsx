@@ -3,7 +3,10 @@ import { experiences } from '../../data/experience';
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen bg-slate-900 pt-20">
+    <main className="min-h-screen bg-slate-900">
+      {/* Spacer */}
+      <div className="h-12"></div>
+      
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
         <div className="max-w-6xl mx-auto text-center">

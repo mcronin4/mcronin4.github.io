@@ -13,19 +13,33 @@ export const personalInfo: PersonalInfo = {
   education: {
     degree: 'Applied Mathematics and Engineering (Computing and Communications)',
     school: 'Queen\'s University',
-    description: 'A unique program combining computer engineering coursework with advanced mathematics. Currently enrolled in the co-op program and recruiting for Summer 2025 internships.'
+    description: 'A unique program combining computer engineering coursework with advanced mathematics.',
+    gpa: '4.18/4.30, including perfect scores in all math courses, earning a $23 000 scholarship',
+    relevantCourses: [
+      'Data Structures & Algorithms',
+      'Real & Complex Analysis',
+      'Machine Learning',
+      'Software Development',
+      'Probability & Statistics',
+      'Information Theory',
+      'Linear Algebra',
+      'Object-Oriented Programming'
+    ]
   },
   hobbies: [
-    'Outdoor activities (canoeing, hiking, snowshoeing)',
-    'Competitive volleyball (indoors and beach)',
-    'Skiing and ski instruction',
-    'Tennis instruction',
-    'Puzzle solving (NYT Crossword daily)',
-    'Queen\'s Engineering Society involvement'
+    'Camping / Outdoors',
+    'Volunteering',
+    'Coding / Hackathons',
+    'Skiing',
+    'Volleyball',
+    'Crosswords / mental puzzles'
   ],
   awards: [
     'Nellie & Ralph Jeffery Award in Mathematics (for highest GPA in Math courses)',
     'NSERC USRA Research Award (to support Mathematics research)',
-    'Jacob Malomet Memorial Award (for top grades in first year)'
+    'Jacob Malomet Memorial Award (for top grades in first year)',
+    'Science Jacket Award (for the single person who has contributed most to the good name of Queen\'s in first year)',
+    'Queen\'s Engineering Competition Winner (first place achievement)',
+    'Best AI Retrieval Project at HackAI Toronto (Canada\'s most competitive hackathon)'
   ]
 }; 

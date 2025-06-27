@@ -6,6 +6,7 @@ import { navigationItems } from '../../data/navigation';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const normalizedPathname = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-700" style={{ backgroundColor: '#010812' }}>
@@ -23,13 +24,15 @@ export default function Navbar() {
             }}
           >
             <strong>Michael Cronin</strong>
-            <span className={`absolute bottom-0 left-4 right-0 h-0.5 bg-blue-400 transform transition-transform duration-300 ${pathname === '/' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+            <span className={`absolute bottom-0 left-4 right-0 h-1 bg-blue-400 transform transition-transform duration-300 ${normalizedPathname === '/' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
           </Link>
 
           {/* Navigation Links - pushed all the way right */}
           <div className="flex items-center">
             {navigationItems.map((item, index) => {
-              const isActive = pathname === item.href;
+              // Normalize paths by removing trailing slashes for comparison
+              const normalizedPathname = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
+              const isActive = normalizedPathname === item.href;
               const isLast = index === navigationItems.length - 1;
 
               if (item.external) {
@@ -48,7 +51,7 @@ export default function Navbar() {
                     }}
                   >
                     <strong>{item.name}</strong>
-                    <span className="absolute bottom-2 left-4 right-4 h-0.5 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                    <span className="absolute bottom-1 left-4 right-4 h-1 bg-blue-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 );
               }
@@ -66,7 +69,7 @@ export default function Navbar() {
                   }}
                 >
                   <strong>{item.name}</strong>
-                  <span className={`absolute bottom-2 left-4 right-4 h-0.5 bg-blue-400 transform transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+                  <span className={`absolute bottom-1 left-4 right-4 h-1 bg-blue-400 transform transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
                 </Link>
               );
             })}

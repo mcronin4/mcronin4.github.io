@@ -31,9 +31,12 @@ export function useTypewriter({ text, speed = 100, delay = 0 }: UseTypewriterPro
     return () => clearTimeout(delayTimer);
   }, [currentIndex, text, speed, delay]);
 
+  const isComplete = !isTyping && currentIndex >= text.length;
+
   return {
     displayedText,
     isTyping,
-    isDone: currentIndex >= text.length
+    isDone: currentIndex >= text.length,
+    isComplete
   };
 } 

@@ -19,9 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-900 text-white">
+      <body className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white">
         <Navbar />
-        <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full pt-24 bg-gradient-with-pattern">
           <main className="w-full max-w-screen-2xl">
             {children}
           </main>

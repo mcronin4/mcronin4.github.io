@@ -1,66 +1,133 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { personalInfo } from '../../data/personal';
 
 export default function AboutPage() {
+  const [activeTab, setActiveTab] = useState<'why' | 'skills' | 'extracurriculars'>('why');
+
+  // Mapping hobby names to image files
+  const hobbyImages: { [key: string]: string } = {
+    'Camping / Outdoors': '/canoeing.jpg',
+    'Volunteering': '/volunteering.JPEG',
+    'Coding / Hackathons': '/coding.jpg',
+    'Skiing': '/skiing.jpg',
+    'Volleyball': '/volleyball.jpg',
+    'Crosswords / mental puzzles': '/crossword.jpg'
+  };
+
+  const contentTabs = {
+    why: {
+      title: "Why I Do What I Do",
+      content: (
+        <div className="px-4 space-y-4">
+          <p className="text-white leading-relaxed">
+            I find satisfaction in making things work. Driven by curiosity and a passion to learn new things, and I am always looking for new challenges to keep life interesting.
+          </p>
+          <p className="text-white leading-relaxed">
+            Ever since I was young, I always spent hours on end tinkering with puzzles, games, and anything that made me think. Today, that same curiosity inspires me to continually learn and grow while contributing to society in the best way I know how.
+          </p>
+        </div>
+      )
+    },
+    skills: {
+      title: "Skills & Expertise",
+      content: (
+        <div className="px-4 space-y-4">
+          <p className="text-white leading-relaxed">
+            My technical expertise spans machine learning, software development, and data science. I'm proficient in Python, JavaScript, C++, and MATLAB, with hands-on experience in frameworks like React, TensorFlow, and various data analysis tools.
+          </p>
+          <p className="text-white leading-relaxed">
+            I excel at breaking down complex problems into manageable components and finding innovative solutions. My mathematical background gives me a strong foundation for understanding algorithms and statistical concepts.
+          </p>
+        </div>
+      )
+    },
+    extracurriculars: {
+      title: "Extra-Curriculars",
+      content: (
+        <div className="px-4 space-y-6">
+          {/* QMIND */}
+          <div>
+            <h3 className="text-lg font-semibold text-blue-400 mb-2">QMIND</h3>
+            <p className="text-white leading-relaxed text-sm">
+              Actively involved in Queen's Machine Intelligence and Data Science, where I conduct research on LLM security and contribute to cutting-edge AI safety projects.
+            </p>
+          </div>
+          
+          {/* Hackathons & Competitions */}
+          <div>
+            <h3 className="text-lg font-semibold text-blue-400 mb-2">Various Hackathons and Competitions</h3>
+            <p className="text-white leading-relaxed text-sm">
+              Regularly participate in hackathons and engineering competitions, including winning the Queen's Engineering Competition and competing at the Ontario Engineering Competition. These experiences have taught me valuable teamwork and problem-solving skills.
+            </p>
+          </div>
+          
+          {/* Queen's Engineering Society */}
+          <div>
+            <h3 className="text-lg font-semibold text-blue-400 mb-2">Queen's Engineering Society</h3>
+            <p className="text-white leading-relaxed text-sm">
+              Active member contributing to various engineering initiatives and community building activities within the faculty.
+            </p>
+          </div>
+        </div>
+      )
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-slate-900 pt-20">
+    <main className="min-h-screen">
       {/* Page Title */}
-      <section className="py-12 px-8 sm:px-12 lg:px-16 xl:px-20 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4">
+      <section className="pt-16 pb-8 px-8 sm:px-12 lg:px-16 xl:px-20">
+        <div className="w-full text-center">
+                      <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4">
             About Me
           </h1>
         </div>
       </section>
 
-      {/* Main Three-Column Section: Why I Do What I Do | Profile Pic | Hobbies */}
-      <section className="py-20 px-8 sm:px-12 lg:px-16 xl:px-20 bg-slate-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            
-            {/* Left Column - Why I Do What I Do */}
-            <div className="space-y-6 text-center">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Why I Do What I Do
-              </h2>
-              <div className="bg-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-xl p-6">
-                <p className="text-slate-300 leading-relaxed mb-4">
-                  I find satisfaction in making things work. Driven by curiosity and a passion to learn new things, and I am always looking for new challenges to keep life interesting.
-                </p>
-                <p className="text-slate-300 leading-relaxed">
-                  Ever since I was young, I always spent hours on end tinkering with puzzles, games, and anything that made me think. Today, that same curiosity inspires me to continually learn and grow while contributing to society in the best way I know how.
-                </p>
-              </div>
-            </div>
+      {/* Spacer */}
+      <div className="h-8"></div>
 
-            {/* Center Column - Profile Picture */}
-            <div className="flex justify-center">
+      {/* Top Section: Profile Pic | Interactive Content */}
+      <section className="py-16 px-8 sm:px-12 lg:px-16 xl:px-20">
+        <div className="w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
+            
+            {/* Left Column - Profile Picture (25% width) */}
+            <div className="lg:col-span-1 flex justify-center lg:justify-start">
               <img 
                 src="/headshot.jpg" 
                 alt="Michael Cronin"
-                className="w-80 h-80 object-cover rounded-full border-4 border-blue-500/30"
+                className="w-80 h-80 object-cover rounded-2xl border-4 border-blue-500/30"
               />
             </div>
 
-            {/* Right Column - Hobbies */}
-            <div className="space-y-6 text-center">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Hobbies & Interests
-              </h2>
-              <div className="space-y-4">
-                {personalInfo.hobbies.map((hobby, index) => (
-                  <div 
-                    key={index}
-                    className="bg-slate-700/30 rounded-lg p-4 text-center"
+            {/* Right Column - Interactive Content (75% width) */}
+            <div className="lg:col-span-3 space-y-6">
+              {/* Tab Buttons */}
+              <div className="flex flex-wrap gap-3">
+                {Object.entries(contentTabs).map(([key, tab]) => (
+                  <button
+                    key={key}
+                    onClick={() => setActiveTab(key as 'why' | 'skills' | 'extracurriculars')}
+                    className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                      activeTab === key
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
+                    }`}
                   >
-                    <div className="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <span className="text-blue-400 text-sm">•</span>
-                    </div>
-                    <p className="text-slate-300 leading-relaxed text-sm">
-                      {hobby}
-                    </p>
-                  </div>
+                    {tab.title}
+                  </button>
                 ))}
+              </div>
+
+              {/* Active Content */}
+              <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-8 min-h-[250px]">
+                <h2 className="text-2xl font-bold text-white mb-6">
+                  {contentTabs[activeTab].title}
+                </h2>
+                {contentTabs[activeTab].content}
               </div>
             </div>
 
@@ -68,51 +135,135 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Educational Background - Centered */}
-      <section className="py-20 px-8 sm:px-12 lg:px-16 xl:px-20 bg-slate-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-12">
-            Educational Background
-          </h2>
-          <div className="bg-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-blue-400 mb-4">
-              {personalInfo.education.degree}
-            </h3>
-            <h4 className="text-xl text-slate-300 mb-6">
-              {personalInfo.education.school}
-            </h4>
-            <p className="text-slate-300 leading-relaxed mb-6">
-              {personalInfo.education.description}
-            </p>
-            <p className="text-slate-300 leading-relaxed">
-              This program fits me perfectly since I love math and solving problems, and I find that going through logical proofs helps my critical thinking skills that I can apply to other parts of my life. As well, with my computer courses, I get the technical groundwork that I use in the workplace and build off of in my personal projects.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Awards & Recognition - Centered */}
-      <section className="py-20 px-8 sm:px-12 lg:px-16 xl:px-20 bg-slate-800">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-12">
-            Awards & Recognition
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {personalInfo.awards.map((award, index) => (
-              <div 
-                key={index}
-                className="bg-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-xl p-6 hover:bg-slate-700/80 transition-colors"
-              >
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white font-bold text-xl">🏆</span>
+      {/* Bottom Section: Educational Background & Awards | Hobbies */}
+      <section className="py-12 px-8 sm:px-12 lg:px-16 xl:px-20">
+        <div className="w-full">
+                      <div className="space-y-12">
+            
+            {/* Educational Background & Awards Row */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Left Column - Educational Background */}
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6 text-center">
+                  Educational Background
+                </h2>
+                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-8 space-y-4">
+                  {/* Degree & School */}
+                  <div>
+                    <h3 className="text-xl font-bold text-blue-400 mb-2">
+                      {personalInfo.education.degree}
+                    </h3>
+                    <h4 className="text-lg text-slate-300 mb-2">
+                      {personalInfo.education.school}
+                    </h4>
+                    <div className="flex items-center space-x-4 mb-3">
+                      <span className="text-lg font-semibold text-blue-400">GPA: </span>
+                      <span className="text-slate-300 font-medium">{personalInfo.education.gpa}</span>
+                    </div>
                   </div>
-                  <p className="text-slate-300 font-medium">
-                    {award}
-                  </p>
+                  
+                  {/* Relevant Courses */}
+                  <div>
+                    <h5 className="text-lg font-semibold text-blue-400 mb-2">
+                      Relevant Courses
+                    </h5>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-1">
+                      {personalInfo.education.relevantCourses.map((course, index) => (
+                        <div 
+                          key={index}
+                          className="bg-slate-600/30 rounded px-3 py-2"
+                        >
+                          <span className="text-slate-300 text-xs">
+                            {course}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              {/* Right Column - Awards */}
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6 text-center">
+                  Awards & Recognition
+                </h2>
+                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-8 space-y-4">
+                  {/* Awards Summary */}
+                  <div>
+                    <h3 className="text-xl font-bold text-blue-400 mb-2">
+                      Academic & Professional Recognition
+                    </h3>
+                    <p className="text-lg text-slate-300 mb-3">
+                      Recognized for excellence in academics, research, and innovation
+                    </p>
+                  </div>
+                  
+                  {/* Awards Grid */}
+                  <div>
+                    <h5 className="text-lg font-semibold text-blue-400 mb-2">
+                      Key Achievements
+                    </h5>
+                    <div className="grid grid-cols-1 gap-3">
+                      {personalInfo.awards.map((award, index) => (
+                        <div 
+                          key={index}
+                          className="bg-slate-600/30 rounded px-3 py-2 flex items-center space-x-3"
+                        >
+                          <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="text-white font-bold text-xs">🏆</span>
+                          </div>
+                          <span className="text-slate-300 text-xs">
+                            {award}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Hobbies & Interests - Full Width */}
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-6 text-center">
+                Hobbies & Interests
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+                {personalInfo.hobbies.map((hobby, index) => {
+                  const imagePath = hobbyImages[hobby];
+                  const imageExists = true; // All images now exist
+                  
+                  return (
+                    <div 
+                      key={index}
+                      className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-6 hover:bg-slate-700/50 transition-colors"
+                    >
+                      <div className="text-center p-2">
+                        <div className="w-full h-32 bg-slate-600 rounded-lg mb-4 overflow-hidden relative">
+                          {imageExists ? (
+                            <img 
+                              src={imagePath}
+                              alt={hobby}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <span className="text-slate-400 text-sm">Photo</span>
+                            </div>
+                          )}
+                        </div>
+                        <p className="text-white leading-relaxed text-sm px-2">
+                          {hobby}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
