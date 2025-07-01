@@ -50,7 +50,7 @@ export default function ExperiencePage() {
                           {experience.company}
                         </h3>
                         {experience.current && (
-                          <span className="inline-block mt-2 sm:mt-0 px-3 py-1 bg-green-600/20 text-green-300 text-sm rounded-full">
+                          <span className="inline-block mt-2 sm:mt-0 !px-4 !py-2 bg-green-600/20 text-green-300 text-sm rounded-full">
                             Current
                           </span>
                         )}
@@ -79,7 +79,7 @@ export default function ExperiencePage() {
                         {experience.skills.map((skill, skillIndex) => (
                           <span 
                             key={skillIndex}
-                            className="px-3 py-1 bg-blue-600/20 text-blue-300 text-sm rounded-full"
+                            className="!px-4 !py-2 bg-blue-600/20 text-blue-300 text-sm rounded-full"
                           >
                             {skill}
                           </span>

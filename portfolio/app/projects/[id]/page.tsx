@@ -5,9 +5,9 @@ import { projects } from '../../../data/projects';
 import { Button } from '../../../components/UI/Button';
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 // Generate static params for all projects
@@ -17,18 +17,61 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects.find(p => p.id === params.id);
+// Helper functions to extract video IDs from URLs
+function getYouTubeVideoId(url: string): string | null {
+  const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[7].length === 11) ? match[7] : null;
+}
+
+function getLoomVideoId(url: string): string | null {
+  const regExp = /loom\.com\/share\/([a-f0-9]+)(\?.*)?/;
+  const match = url.match(regExp);
+  return match ? match[1] : null;
+}
+
+function getLoomEmbedUrl(url: string): string | null {
+  const regExp = /loom\.com\/share\/([a-f0-9]+)(\?.*)?/;
+  const match = url.match(regExp);
+  if (!match) return null;
+  
+  const videoId = match[1];
+  const queryParams = match[2] || '';
+  return `https://www.loom.com/embed/${videoId}${queryParams}`;
+}
+
+function getVideoInfo(url: string): { type: 'youtube' | 'loom' | null, id: string | null } {
+  const youtubeId = getYouTubeVideoId(url);
+  if (youtubeId) return { type: 'youtube', id: youtubeId };
+  
+  const loomId = getLoomVideoId(url);
+  if (loomId) return { type: 'loom', id: loomId };
+  
+  return { type: null, id: null };
+}
+
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { id } = await params;
+  const project = projects.find(p => p.id === id);
 
   if (!project) {
     notFound();
   }
 
+  // Determine what to show in the hero section
+  const videoInfo = project.demoUrl ? getVideoInfo(project.demoUrl) : { type: null, id: null };
+  const heroImageToUse = project.heroImageUrl || project.imageUrl;
+
+
+
   return (
-    <main className="min-h-screen bg-slate-900 pt-20">
-      {/* Hero Section */}
-      <section className="w-full py-20 px-8 sm:px-12 lg:px-16 xl:px-20 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
-        <div className="max-w-6xl mx-auto">
+                <main className="min-h-screen mt-20">
+        {/* Spacer for navbar */}
+        <div className="h-20"></div>
+        
+        {/* Hero Section */}
+        <section className="w-full pt-32 pb-20 px-8 sm:px-12 lg:px-16 xl:px-20 flex justify-center">
+        <div className="w-full max-w-6xl">
           {/* Back Button */}
           <div className="text-left mb-8 px-4">
             <Link 
@@ -42,7 +85,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           <div className="text-center">
             {/* Category Badge */}
             <div className="flex flex-wrap justify-center gap-3 mb-8 px-4">
-              <span className={`px-4 py-2 rounded-full text-sm font-medium ${
+              <span className={`!px-5 !py-2 rounded-full text-sm font-medium ${
                 project.category === 'ml' ? 'bg-purple-600 text-white' :
                 project.category === 'web' ? 'bg-green-600 text-white' :
                 project.category === 'research' ? 'bg-yellow-600 text-white' :
@@ -53,13 +96,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                  project.category === 'research' ? 'Research' : 'Other'}
               </span>
               {project.featured && (
-                <span className="px-3 py-2 bg-blue-600 text-white text-sm rounded-full">
+                <span className="!px-4 !py-2 bg-blue-600 text-white text-sm rounded-full">
                   ⭐ Featured
                 </span>
               )}
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 break-words leading-tight px-8 sm:px-12">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 mt-8 break-words leading-tight px-8 sm:px-12">
               {project.title}
             </h1>
             
@@ -70,24 +113,44 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      {/* Project Image - Centered */}
-      {project.imageUrl && (
-        <section className="w-full py-12 px-8 sm:px-12 lg:px-16 xl:px-20 bg-slate-800">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex justify-center px-4">
+      {/* Project Media - Video or Image */}
+      <section className="w-full py-12 px-8 sm:px-12 lg:px-16 xl:px-20 flex justify-center">
+        <div className="w-full max-w-5xl">
+          <div className="flex justify-center px-4">
+            {videoInfo.id && videoInfo.type ? (
+              /* Video Embed */
+              <div className="w-full max-w-4xl">
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-600">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src={
+                      videoInfo.type === 'youtube' 
+                        ? `https://www.youtube.com/embed/${videoInfo.id}`
+                        : getLoomEmbedUrl(project.demoUrl!) || ''
+                    }
+                    title={`${project.title} Demo Video`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+            ) : heroImageToUse ? (
+              /* Hero Image Fallback */
               <img 
-                src={project.imageUrl} 
+                src={heroImageToUse} 
                 alt={project.title}
                 className="w-full max-w-4xl h-96 object-cover rounded-xl border border-slate-600"
               />
-            </div>
+            ) : null}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Project Details */}
-      <section className="w-full py-20 px-8 sm:px-12 lg:px-16 xl:px-20 bg-slate-900">
-        <div className="max-w-6xl mx-auto">
+      <section className="w-full py-20 px-8 sm:px-12 lg:px-16 xl:px-20 flex justify-center">
+        <div className="w-full max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Left Column - About This Project (3/4 width) */}
             <div className="lg:col-span-3">
@@ -108,7 +171,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   {project.technologies.map((tech) => (
                     <span 
                       key={tech}
-                      className="px-3 py-2 bg-blue-600/20 text-blue-300 rounded-full text-sm"
+                      className="!px-4 !py-2 bg-blue-600/20 text-blue-300 rounded-full text-sm"
                     >
                       {tech}
                     </span>
@@ -125,7 +188,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-3 p-4 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors"
+                      className="flex items-center space-x-3 p-4 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
                     >
                       <span className="text-2xl">🐱</span>
                       <div>
@@ -140,7 +203,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-3 p-4 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors"
+                      className="flex items-center space-x-3 p-4 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
                     >
                       <span className="text-2xl">🌐</span>
                       <div>
@@ -155,12 +218,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-3 p-4 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors"
+                      className="flex items-center space-x-3 p-4 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
                     >
                       <span className="text-2xl">🎥</span>
                       <div>
                         <p className="text-white font-medium">Video Demo</p>
-                        <p className="text-slate-400 text-sm">Watch on YouTube</p>
+                        <p className="text-slate-400 text-sm">Watch Demo Video</p>
                       </div>
                     </a>
                   )}

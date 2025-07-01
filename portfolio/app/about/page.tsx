@@ -204,7 +204,7 @@ export default function AboutPage() {
                     <h5 className="text-lg font-semibold text-blue-400 mb-2">
                       Key Achievements
                     </h5>
-                    <div className="grid grid-cols-1 gap-3">
+                    <div className="grid grid-cols-2 gap-3">
                       {personalInfo.awards.map((award, index) => (
                         <div 
                           key={index}
