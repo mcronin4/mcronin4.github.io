@@ -8,6 +8,7 @@ export interface Project {
   liveUrl?: string;
   demoUrl?: string;
   imageUrl: string;
+  heroImageUrl?: string;
   category: 'web' | 'ml' | 'mobile' | 'research' | 'other';
   featured: boolean;
   year: string;

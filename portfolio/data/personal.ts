@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
     degree: 'Applied Mathematics and Engineering (Computing and Communications)',
     school: 'Queen\'s University',
     description: 'A unique program combining computer engineering coursework with advanced mathematics.',
-    gpa: '4.18/4.30, including perfect scores in all math courses, earning a $23 000 scholarship',
+    gpa: '4.18/4.30, including perfect scores in all math courses, earning a $23 400 scholarship',
     relevantCourses: [
       'Data Structures & Algorithms',
       'Real & Complex Analysis',
@@ -36,8 +36,6 @@ export const personalInfo: PersonalInfo = {
   ],
   awards: [
     'Nellie & Ralph Jeffery Award in Mathematics (for highest GPA in Math courses)',
-    'NSERC USRA Research Award (to support Mathematics research)',
-    'Jacob Malomet Memorial Award (for top grades in first year)',
     'Science Jacket Award (for the single person who has contributed most to the good name of Queen\'s in first year)',
     'Queen\'s Engineering Competition Winner (first place achievement)',
     'Best AI Retrieval Project at HackAI Toronto (Canada\'s most competitive hackathon)'

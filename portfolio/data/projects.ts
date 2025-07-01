@@ -10,9 +10,10 @@ export const projects: Project[] = [
 The platform includes a sophisticated semantic-clustering algorithm that groups related articles into coherent "stories" and generates comprehensive summaries using Google's Gemini-2.5 language model. The React + Next.js frontend provides users with complete control over their news experience, allowing them to customize topics, adjust story rendering preferences, and rewrite articles to match their preferred tone and length.
 
 Key features include embedding-driven "For-You" feeds that learn from user behavior, semantic search capabilities for finding relevant content, and intelligent recommendation systems. The entire platform is designed with scalability in mind, handling high-volume news ingestion while maintaining real-time responsiveness for user interactions.`,
-    technologies: ['Python', 'Crawl4AI', 'Supabase', 'Pinecone', 'Google Gemini-2.5', 'React', 'Next.js', 'TypeScript', 'Vector Embeddings', 'Semantic Search'],
+    technologies: ['Python', 'Crawl4AI', 'Supabase', 'Pinecone', 'Google Gemini-2.5', 'React', 'Next.js', 'TypeScript', 'Vector Embeddings', 'Semantic Search', 'AI Retrieval', 'RAG', 'Real-time API', 'Web Scraping', 'Clustering Algorithms'],
     githubUrl: '', // Add if available
-    imageUrl: '/news-platform.jpg', // You can add an image later
+    demoUrl: 'https://www.loom.com/share/1a12c09d72334fceb5ec7d0136036c88?sid=4a92be44-3105-4d3c-8ad4-c765e596a94f',
+    imageUrl: '/compile.ico',
     category: 'ml',
     featured: true,
     year: '2025'
@@ -30,16 +31,17 @@ The research involved extensive experimentation with different activation patter
 The work culminated in a peer-reviewed paper co-authored and published at CUCAI (Canadian Undergraduate Conference on Artificial Intelligence), demonstrating the practical effectiveness and theoretical significance of the proposed defense mechanisms. This research contributes to the broader field of AI safety and responsible AI development.`,
     technologies: ['Python', 'PyTorch', 'Transformers', 'Neural Network Analysis', 'Feature Engineering', 'AI Safety', 'Research Methodology', 'Academic Writing'],
     githubUrl: '', // Add if available
-    imageUrl: '/llm-defense.jpg', // You can add an image later
+    imageUrl: '/qmind.png',
+    heroImageUrl: '/jailbreak_hero.png',
     category: 'research',
     featured: true,
     year: '2024-2025'
   },
   {
     id: 'chameleon-ai-content',
-    title: '🦎 Chameleon - AI-Powered Content Adaptation Platform',
-    description: '🏆 Award-winning hackathon project that transforms long-form content into platform-optimized social media posts using advanced AI retrieval.',
-    longDescription: `Built in just 24 hours during the hackAI-JACM hackathon, Chameleon won the "Best AI Retrieval Project" award and $400 in BestBuy gift cards for demonstrating the most sophisticated implementation of contextual AI retrieval.
+    title: 'Chameleon - AI-Powered Content Adaptation Platform',
+    description: 'Award-winning hackathon project that transforms long-form content into platform-optimized social media posts using advanced AI retrieval.',
+    longDescription: `Built in just 24 hours during the HackAI Toronto hackathon, Chameleon won the "Best AI Retrieval Project" award and $400 in BestBuy gift cards for demonstrating the most sophisticated implementation of contextual AI retrieval.
 
 Chameleon is a full-stack AI application that revolutionizes content creation for social media by automatically adapting long-form content (articles, transcripts, videos) into platform-optimized posts for X (Twitter) and LinkedIn. The platform showcases advanced AI capabilities through intelligent topic extraction, emotional context analysis, and platform-specific content adaptation.
 
@@ -52,7 +54,7 @@ The project demonstrates exceptional engineering skills by delivering a producti
     githubUrl: 'https://github.com/mcronin4/hackAI-JACM',
     liveUrl: 'https://devpost.com/software/chameleon-qpz6ru',
     demoUrl: 'https://youtu.be/lXXtfYojx7E',
-    imageUrl: '/chameleon-ai.jpg', // You can add an image later
+    imageUrl: '/chameleon.png',
     category: 'ml',
     featured: true,
     year: '2025'
@@ -73,7 +75,8 @@ Additional features include animated navbar with hover effects, project cards wi
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design', 'SEO', 'Git', 'GitHub Pages', 'Component Architecture'],
     githubUrl: 'https://github.com/mcronin4/mcronin4.github.io',
     liveUrl: 'https://mcronin4.github.io',
-    imageUrl: '/portfolio-website.jpg', // You can add a screenshot later
+    imageUrl: '/icon.png',
+    heroImageUrl: '/website_hero.png',
     category: 'web',
     featured: false,
     year: '2024-2025'

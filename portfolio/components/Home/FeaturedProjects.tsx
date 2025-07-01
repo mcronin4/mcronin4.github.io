@@ -63,7 +63,7 @@ export default function FeaturedProjects() {
             className="w-full"
           >
             {/* Current Project Card - Compact Version */}
-            <Link href={`/projects/${currentProject.id}`} className="block">
+            <Link href={`/projects/${currentProject.id}`} className="block p-2">
               <Card className="group bg-slate-800/40 border-slate-700/30 backdrop-blur-sm hover:bg-slate-800/60 transition-colors cursor-pointer">
                 <CardContent className="p-0">
                 {/* Horizontal layout for larger design */}
@@ -81,7 +81,7 @@ export default function FeaturedProjects() {
                     
                     {/* Year badge - smaller */}
                     <div className="absolute top-2 right-2">
-                      <span className="px-2 py-1 bg-slate-800/80 text-slate-300 text-xs rounded backdrop-blur-sm">
+                                                <span className="!px-3 !py-2 bg-slate-800/80 text-slate-300 text-xs rounded backdrop-blur-sm">
                         {currentProject.year}
                       </span>
                     </div>
@@ -94,7 +94,7 @@ export default function FeaturedProjects() {
                         <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2">
                           {currentProject.title}
                         </h3>
-                        <span className={`px-3 py-1 rounded text-sm font-medium ml-3 ${
+                        <span className={`!px-5 !py-2 rounded text-sm font-medium ml-3 ${
                           currentProject.category === 'ml' ? 'bg-purple-600/80 text-white' :
                           currentProject.category === 'web' ? 'bg-green-600/80 text-white' :
                           currentProject.category === 'research' ? 'bg-yellow-600/80 text-white' :
@@ -115,13 +115,13 @@ export default function FeaturedProjects() {
                         {currentProject.technologies.slice(0, 4).map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 bg-blue-600/20 text-blue-300 text-sm rounded border border-blue-600/30"
+                            className="!px-4 !py-2 bg-blue-600/20 text-blue-300 text-sm rounded border border-blue-600/30"
                           >
                             {tech}
                           </span>
                         ))}
                         {currentProject.technologies.length > 4 && (
-                          <span className="px-3 py-1 bg-slate-700/50 text-slate-300 text-sm rounded border border-slate-600/50">
+                                                      <span className="!px-4 !py-2 bg-slate-700/50 text-slate-300 text-sm rounded border border-slate-600/50">
                             +{currentProject.technologies.length - 4}
                           </span>
                         )}
