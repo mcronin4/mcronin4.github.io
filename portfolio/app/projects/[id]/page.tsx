@@ -62,29 +62,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const videoInfo = project.demoUrl ? getVideoInfo(project.demoUrl) : { type: null, id: null };
   const heroImageToUse = project.heroImageUrl || project.imageUrl;
 
-
-
   return (
-                <main className="min-h-screen mt-20">
-        {/* Spacer for navbar */}
-        <div className="h-20"></div>
-        
-        {/* Hero Section */}
-        <section className="w-full pt-32 pb-20 px-8 sm:px-12 lg:px-16 xl:px-20 flex justify-center">
+    <main className="min-h-screen">
+      
+      {/* Hero Section */}
+      <section className="w-full sm:px-4 lg:px-6 xl:px-8 flex justify-center">
         <div className="w-full max-w-6xl">
-          {/* Back Button */}
-          <div className="text-left mb-8 px-4">
-            <Link 
-              href="/projects"
-              className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              ← Back to Projects
-            </Link>
-          </div>
-          
-          <div className="text-center">
-            {/* Category Badge */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8 px-4">
+          {/* Top Row: Back Button & Tags */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 px-2 gap-2">
+            {/* Back Button */}
+            <div className="text-left">
+              <Link 
+                href="/projects"
+                className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                ← Back to Projects
+              </Link>
+            </div>
+            {/* Tags */}
+            <div className="flex flex-wrap justify-start sm:justify-end gap-3">
               <span className={`!px-5 !py-2 rounded-full text-sm font-medium ${
                 project.category === 'ml' ? 'bg-purple-600 text-white' :
                 project.category === 'web' ? 'bg-green-600 text-white' :
@@ -101,12 +97,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </span>
               )}
             </div>
+          </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 mt-8 break-words leading-tight px-8 sm:px-12">
+          <div className="text-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 mt-4 break-words leading-tight px-2 sm:px-4">
               {project.title}
             </h1>
             
-            <p className="text-lg sm:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed px-8 sm:px-12">
+            <p className="text-lg sm:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed px-2 sm:px-4">
               {project.description}
             </p>
           </div>
@@ -114,9 +112,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </section>
 
       {/* Project Media - Video or Image */}
-      <section className="w-full py-12 px-8 sm:px-12 lg:px-16 xl:px-20 flex justify-center">
+      <section className="w-full py-4 px-2 sm:px-4 lg:px-6 xl:px-8 flex justify-center">
         <div className="w-full max-w-5xl">
-          <div className="flex justify-center px-4">
+          <div className="flex justify-center px-2">
             {videoInfo.id && videoInfo.type ? (
               /* Video Embed */
               <div className="w-full max-w-4xl">
@@ -149,12 +147,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </section>
 
       {/* Project Details */}
-      <section className="w-full py-20 px-8 sm:px-12 lg:px-16 xl:px-20 flex justify-center">
+      <section className="w-full py-8 px-2 sm:px-4 lg:px-6 xl:px-8 flex justify-center">
         <div className="w-full max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             {/* Left Column - About This Project (3/4 width) */}
             <div className="lg:col-span-3">
-              <h2 className="text-3xl font-bold text-white mb-8">About This Project</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">About This Project</h2>
               <div className="prose prose-invert max-w-none">
                 <p className="text-slate-300 text-lg leading-relaxed whitespace-pre-line">
                   {project.longDescription}
@@ -163,10 +161,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
 
             {/* Right Column - Technologies & Links (1/4 width) */}
-            <div className="lg:col-span-1 space-y-8">
+            <div className="lg:col-span-1 space-y-4">
               {/* Technologies */}
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Technologies Used</h3>
+                <h3 className="text-2xl font-bold text-white mb-3">Technologies Used</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span 
@@ -181,14 +179,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
               {/* Links */}
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Project Links</h3>
-                <div className="space-y-3">
+                <h3 className="text-2xl font-bold text-white mb-3">Project Links</h3>
+                <div className="space-y-2">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-3 p-4 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
+                      className="flex items-center space-x-3 p-3 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
                     >
                       <span className="text-2xl">🐱</span>
                       <div>
@@ -203,7 +201,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-3 p-4 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
+                      className="flex items-center space-x-3 p-3 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
                     >
                       <span className="text-2xl">🌐</span>
                       <div>
@@ -218,7 +216,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-3 p-4 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
+                      className="flex items-center space-x-3 p-3 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700/80 rounded-lg transition-colors border border-slate-600"
                     >
                       <span className="text-2xl">🎥</span>
                       <div>

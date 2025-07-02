@@ -52,7 +52,7 @@ export default function FeaturedProjects() {
       </button>
 
       {/* Carousel Slides */}
-      <div className="overflow-hidden rounded-lg">
+      <div className="overflow-hidden rounded-lg max-w-4xl mx-auto px-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -65,91 +65,57 @@ export default function FeaturedProjects() {
             {/* Current Project Card - Compact Version */}
             <Link href={`/projects/${currentProject.id}`} className="block p-2">
               <Card className="group bg-slate-800/40 border-slate-700/30 backdrop-blur-sm hover:bg-slate-800/60 transition-colors cursor-pointer">
-                <CardContent className="p-0">
-                {/* Horizontal layout for larger design */}
-                <div className="flex flex-col sm:flex-row h-64">
-                  {/* Project image - larger */}
-                  <div className="relative h-64 sm:h-full sm:w-64 bg-gradient-to-br from-slate-700 to-slate-800 overflow-hidden sm:rounded-l-lg">
-                    {currentProject.imageUrl && (
-                      <img
-                        src={currentProject.imageUrl}
-                        alt={currentProject.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                    
-                    {/* Year badge - smaller */}
-                    <div className="absolute top-2 right-2">
-                                                <span className="!px-3 !py-2 bg-slate-800/80 text-slate-300 text-xs rounded backdrop-blur-sm">
-                        {currentProject.year}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Project content - expanded */}
-                  <div className="p-8 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2">
-                          {currentProject.title}
-                        </h3>
-                        <span className={`!px-5 !py-2 rounded text-sm font-medium ml-3 ${
-                          currentProject.category === 'ml' ? 'bg-purple-600/80 text-white' :
-                          currentProject.category === 'web' ? 'bg-green-600/80 text-white' :
-                          currentProject.category === 'research' ? 'bg-yellow-600/80 text-white' :
-                          'bg-gray-600/80 text-white'
-                        }`}>
-                          {currentProject.category === 'ml' ? 'ML' :
-                           currentProject.category === 'web' ? 'Web' :
-                           currentProject.category === 'research' ? 'Research' : 'Other'}
+                <CardContent className="p-4">
+                  {/* Vertical layout for centered image */}
+                  <div className="flex flex-col items-center">
+                    {/* Project image - centered */}
+                    <div className="relative w-32 h-32 bg-gradient-to-br from-slate-700 to-slate-800 overflow-hidden rounded-lg mx-auto mb-4 flex-shrink-0">
+                      {currentProject.imageUrl && (
+                        <img
+                          src={currentProject.imageUrl}
+                          alt={currentProject.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      {/* Year badge - smaller */}
+                      <div className="absolute top-2 right-2">
+                        <span className="!px-3 !py-2 bg-slate-800/80 text-slate-300 text-xs rounded backdrop-blur-sm">
+                          {currentProject.year}
                         </span>
                       </div>
-                      
-                      <p className="text-white text-base mb-4 line-clamp-3 leading-relaxed">
-                        {currentProject.description}
-                      </p>
+                    </div>
 
-                      {/* Technologies - show more */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {currentProject.technologies.slice(0, 4).map((tech) => (
-                          <span
-                            key={tech}
-                            className="!px-4 !py-2 bg-blue-600/20 text-blue-300 text-sm rounded border border-blue-600/30"
-                          >
-                            {tech}
+                    {/* Project content - expanded */}
+                    <div className="w-full px-6 py-4 flex flex-col justify-between items-center">
+                      <div className="w-full">
+                        <div className="flex items-start justify-between mb-3 w-full">
+                          <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors break-words whitespace-normal">
+                            {currentProject.title}
+                          </h3>
+                          <span className={`!px-5 !py-2 rounded text-sm font-medium ml-3 ${
+                            currentProject.category === 'ml' ? 'bg-purple-600/80 text-white' :
+                            currentProject.category === 'web' ? 'bg-green-600/80 text-white' :
+                            currentProject.category === 'research' ? 'bg-yellow-600/80 text-white' :
+                            'bg-gray-600/80 text-white'
+                          }`}>
+                            {currentProject.category === 'ml' ? 'ML' :
+                             currentProject.category === 'web' ? 'Web' :
+                             currentProject.category === 'research' ? 'Research' : 'Other'}
                           </span>
-                        ))}
-                        {currentProject.technologies.length > 4 && (
-                                                      <span className="!px-4 !py-2 bg-slate-700/50 text-slate-300 text-sm rounded border border-slate-600/50">
-                            +{currentProject.technologies.length - 4}
-                          </span>
-                        )}
+                        </div>
+                        
+                        <p className="text-white text-base mb-4 break-words whitespace-normal leading-relaxed">
+                          {currentProject.description}
+                        </p>
+
+                        {/* Technologies removed for featured projects */}
                       </div>
                     </div>
-
-                    {/* Project links - larger */}
-                    <div className="flex gap-3">
-                      {currentProject.githubUrl && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            window.open(currentProject.githubUrl, '_blank');
-                          }}
-                          className="text-sm px-4 py-2"
-                        >
-                          <Github className="w-4 h-4" />
-                        </Button>
-                      )}
-                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
+                </CardContent>
+              </Card>
+            </Link>
           </motion.div>
         </AnimatePresence>
       </div>

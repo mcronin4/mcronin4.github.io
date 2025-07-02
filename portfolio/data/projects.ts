@@ -91,7 +91,8 @@ Additional features include animated navbar with hover effects, project cards wi
     imageUrl: '/crossword.jpg',
     category: 'ml',
     featured: false,
-    year: '2024'
+    year: '2024',
+    heroImageUrl: '/crossword_hero.png'
   },
   {
     id: 'homebase',
@@ -103,7 +104,8 @@ Additional features include animated navbar with hover effects, project cards wi
     imageUrl: '/homebase.jpg',
     category: 'web',
     featured: false,
-    year: '2023'
+    year: '2023',
+    heroImageUrl: '/homebase_hero.png'
   },
   {
     id: 'crane-controller',
@@ -114,7 +116,8 @@ Additional features include animated navbar with hover effects, project cards wi
     imageUrl: '/crane.jpg',
     category: 'other',
     featured: false,
-    year: '2024'
+    year: '2024',
+    heroImageUrl: '/crane_hero.png'
   },
   {
     id: 'system-controller',
@@ -125,7 +128,8 @@ Additional features include animated navbar with hover effects, project cards wi
     imageUrl: '/controller.jpg',
     category: 'research',
     featured: false,
-    year: '2023'
+    year: '2023',
+    heroImageUrl: '/blackbox_hero.png'
   },
   {
     id: 'hurricane-drone-simulation',
@@ -136,7 +140,8 @@ Additional features include animated navbar with hover effects, project cards wi
     imageUrl: '/hurricane.jpg',
     category: 'research',
     featured: false,
-    year: '2022'
+    year: '2022',
+    heroImageUrl: '/hurricane_hero.png'
   }
 ];
 

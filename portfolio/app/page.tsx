@@ -19,15 +19,16 @@ export default function HomePage() {
       <HeroSection onTypewriterComplete={setTypewriterComplete}>
         {/* Two-column layout that fades in after typewriter completes */}
         {typewriterComplete && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto px-8">
+          <div className="flex flex-col lg:flex-row gap-12 items-start max-w-6xl mx-auto px-8">
             {/* Left Column - About Me */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center lg:text-left"
+              className="flex-1 min-w-0 text-center lg:text-left flex flex-col justify-between"
             >
-              <div className="mb-6">
+              <h2 className="text-2xl font-bold text-white mb-4">About Me</h2>
+              <div>
                 <div className="w-48 h-48 mx-auto lg:mx-0 mb-6 overflow-hidden rounded-xl">
                   <img 
                     src="/headshot.jpg" 
@@ -35,13 +36,13 @@ export default function HomePage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-4">About Me</h2>
                 <p className="text-slate-300 mb-4 leading-relaxed">
                   I'm a student at Queen's University studying Applied Mathematics & Engineering, 
                   with a passion for data science, machine learning, and software development.
+                  I love tackling complex problems and building solutions that make a real impact.
                 </p>
                 <p className="text-slate-300 mb-6 leading-relaxed">
-                  I love tackling complex problems and building solutions that make a real impact.
+                  Outside of academics, I enjoy outdoor adventures, hackathons, and volunteering. I'm always eager to learn new things, collaborate with others, and take on challenges that push me to grow.
                 </p>
                 <a 
                   href="/about"
@@ -57,14 +58,14 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-center lg:text-left"
+              className="flex-1 min-w-0 text-center lg:text-left flex flex-col justify-between"
             >
-              <h2 className="text-2xl font-bold text-white mb-6">Featured Projects</h2>
-              <FeaturedProjects />
-              <div className="mt-6">
+              <h2 className="text-2xl font-bold text-white mb-4">Featured Projects</h2>
+              <div>
+                <FeaturedProjects />
                 <a 
                   href="/projects"
-                  className="inline-flex items-center px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors duration-200"
+                  className="inline-flex items-center mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
                 >
                   View All Projects →
                 </a>

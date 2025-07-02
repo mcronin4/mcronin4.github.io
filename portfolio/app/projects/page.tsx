@@ -64,11 +64,11 @@ export default function ProjectsPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Spacer */}
-      <div className="h-16"></div>
+
+
 
       {/* Brief Intro */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 flex justify-center">
+      <section className="py-2 px-4 sm:px-6 lg:px-8 flex justify-center">
         <div className="w-full max-w-4xl text-center">
           <p className="text-xl text-slate-300 leading-relaxed">
             A collection of projects showcasing my skills in machine learning, web development, 
@@ -79,8 +79,8 @@ export default function ProjectsPage() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 flex justify-center">
-        <div className="w-full max-w-4xl space-y-8">
+      <section className="py-4 px-4 sm:px-6 lg:px-8 flex justify-center">
+        <div className="w-full max-w-4xl space-y-4">
           {/* Dropdown Filters */}
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             {/* Category Dropdown */}
@@ -90,7 +90,7 @@ export default function ProjectsPage() {
                   setCategoryDropdownOpen(!categoryDropdownOpen);
                   setTechnologyDropdownOpen(false);
                 }}
-                className="w-64 px-6 py-4 bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-xl text-white font-medium hover:bg-slate-700/80 transition-all duration-200 flex items-center justify-between shadow-lg"
+                className="w-64 !px-6 !py-3 bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-xl text-white font-medium hover:bg-slate-700/80 transition-all duration-200 flex items-center justify-between shadow-lg"
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
@@ -121,7 +121,7 @@ export default function ProjectsPage() {
                         setSelectedTechnology('all');
                         setCategoryDropdownOpen(false);
                       }}
-                      className={`w-full px-6 py-3 text-left hover:bg-slate-700/50 transition-colors flex items-center space-x-3 ${
+                      className={`w-full !px-6 !py-3 text-left hover:bg-slate-700/50 transition-colors flex items-center space-x-3 ${
                         selectedCategory === category ? 'bg-blue-600/20 text-blue-300' : 'text-slate-300'
                       }`}
                     >
@@ -147,7 +147,7 @@ export default function ProjectsPage() {
                   setTechnologyDropdownOpen(!technologyDropdownOpen);
                   setCategoryDropdownOpen(false);
                 }}
-                className="w-64 px-6 py-4 bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-xl text-white font-medium hover:bg-slate-700/80 transition-all duration-200 flex items-center justify-between shadow-lg"
+                className="w-64 !px-6 !py-3 bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-xl text-white font-medium hover:bg-slate-700/80 transition-all duration-200 flex items-center justify-between shadow-lg"
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -172,7 +172,7 @@ export default function ProjectsPage() {
                       setSelectedTechnology('all');
                       setTechnologyDropdownOpen(false);
                     }}
-                    className={`w-full px-6 py-3 text-left hover:bg-slate-700/50 transition-colors flex items-center space-x-3 ${
+                    className={`w-full !px-6 !py-3 text-left hover:bg-slate-700/50 transition-colors flex items-center space-x-3 ${
                       selectedTechnology === 'all' ? 'bg-green-600/20 text-green-300' : 'text-slate-300'
                     }`}
                   >
@@ -188,7 +188,7 @@ export default function ProjectsPage() {
                         setSelectedTechnology(tech);
                         setTechnologyDropdownOpen(false);
                       }}
-                      className={`w-full px-6 py-3 text-left hover:bg-slate-700/50 transition-colors flex items-center space-x-3 ${
+                      className={`w-full !px-6 !py-3 text-left hover:bg-slate-700/50 transition-colors flex items-center space-x-3 ${
                         selectedTechnology === tech ? 'bg-green-600/20 text-green-300' : 'text-slate-300'
                       }`}
                     >
@@ -205,7 +205,7 @@ export default function ProjectsPage() {
 
           {/* Active Filters & Results Count */}
           <div className="text-center">
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
+            <div className="flex flex-wrap justify-center gap-2 mb-2">
               {selectedCategory !== 'all' && (
                 <span className="px-4 py-2 bg-blue-600/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
                   Category: {selectedCategory === 'ml' ? 'Machine Learning' :
@@ -229,7 +229,7 @@ export default function ProjectsPage() {
                     setSelectedCategory('all');
                     setSelectedTechnology('all');
                   }}
-                  className="px-4 py-2 bg-slate-700/50 hover:bg-slate-600/50 text-slate-200 rounded-lg text-sm transition-colors border border-slate-600 hover:border-slate-500"
+                  className="!px-6 !py-3 bg-slate-700/50 hover:bg-slate-600/50 text-slate-200 rounded-lg text-sm transition-colors border border-slate-600 hover:border-slate-500"
                 >
                   Clear Filters
                 </button>
@@ -240,7 +240,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 flex justify-center">
+      <section className="py-2 px-2 sm:px-3 lg:px-4 flex justify-center">
         <div className="w-full max-w-4xl">
           <div className="flex flex-col items-center justify-center gap-8">
             {filteredProjects.map((project) => (
@@ -249,14 +249,14 @@ export default function ProjectsPage() {
                   href={`/projects/${project.id}`}
                   className="w-full max-w-3xl group cursor-pointer"
                 >
-                <div className="bg-slate-800 border border-slate-600 rounded-lg overflow-hidden hover:border-blue-500 hover:shadow-lg transition-all duration-200 hover:bg-slate-700 !p-2">
-                  <div className="flex flex-col lg:flex-row">
+                <div className="bg-slate-800 border border-slate-600 rounded-lg overflow-hidden hover:border-blue-500 hover:shadow-lg transition-all duration-200 hover:bg-slate-700 h-80">
+                  <div className="flex flex-col lg:flex-row h-full">
                     {/* Project Image */}
-                    <div className="lg:w-1/3 h-64 lg:h-auto">
+                    <div className="lg:w-1/3 h-64 lg:h-full p-2 flex items-center justify-center">
                       <img 
                         src={project.imageUrl} 
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain rounded"
                         onError={(e) => {
                           e.currentTarget.src = '/placeholder-project.jpg';
                         }}
@@ -264,7 +264,7 @@ export default function ProjectsPage() {
                     </div>
                     
                     {/* Project Content */}
-                    <div className="lg:w-2/3 p-6 flex flex-col relative">
+                    <div className="lg:w-2/3 p-4 flex flex-col relative h-full">
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-4">
                           <span className={`!px-5 !py-2 text-xs rounded-full ${
@@ -309,21 +309,7 @@ export default function ProjectsPage() {
                         </div>
                       </div>
 
-                      {/* GitHub Button */}
-                      {project.githubUrl && (
-                        <div className="mt-auto">
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              window.open(project.githubUrl, '_blank');
-                            }}
-                            className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded transition-colors text-sm"
-                          >
-                            View Code
-                          </button>
-                        </div>
-                      )}
+
 
                       {/* Clickable Arrow */}
                       <div className="absolute bottom-6 right-6">

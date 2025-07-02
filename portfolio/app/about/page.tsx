@@ -20,7 +20,7 @@ export default function AboutPage() {
     why: {
       title: "Why I Do What I Do",
       content: (
-        <div className="px-4 space-y-4">
+        <div className="px-1 space-y-2">
           <p className="text-white leading-relaxed">
             I find satisfaction in making things work. Driven by curiosity and a passion to learn new things, and I am always looking for new challenges to keep life interesting.
           </p>
@@ -33,7 +33,7 @@ export default function AboutPage() {
     skills: {
       title: "Skills & Expertise",
       content: (
-        <div className="px-4 space-y-4">
+        <div className="px-1 space-y-2">
           <p className="text-white leading-relaxed">
             My technical expertise spans machine learning, software development, and data science. I'm proficient in Python, JavaScript, C++, and MATLAB, with hands-on experience in frameworks like React, TensorFlow, and various data analysis tools.
           </p>
@@ -46,28 +46,25 @@ export default function AboutPage() {
     extracurriculars: {
       title: "Extra-Curriculars",
       content: (
-        <div className="px-4 space-y-6">
+        <div className="space-y-2">
           {/* QMIND */}
           <div>
-            <h3 className="text-lg font-semibold text-blue-400 mb-2">QMIND</h3>
             <p className="text-white leading-relaxed text-sm">
-              Actively involved in Queen's Machine Intelligence and Data Science, where I conduct research on LLM security and contribute to cutting-edge AI safety projects.
+              <span className="text-blue-400 font-semibold">QMIND:</span> Actively involved in Queen's Machine Intelligence and Data Science, where I conduct research on LLM security and contribute to cutting-edge AI safety projects.
             </p>
           </div>
           
           {/* Hackathons & Competitions */}
           <div>
-            <h3 className="text-lg font-semibold text-blue-400 mb-2">Various Hackathons and Competitions</h3>
             <p className="text-white leading-relaxed text-sm">
-              Regularly participate in hackathons and engineering competitions, including winning the Queen's Engineering Competition and competing at the Ontario Engineering Competition. These experiences have taught me valuable teamwork and problem-solving skills.
+              <span className="text-blue-400 font-semibold">Various Hackathons and Competitions:</span> Regularly participate in hackathons and engineering competitions, including winning the Queen's Engineering Competition and competing at the Ontario Engineering Competition. These experiences have taught me valuable teamwork and problem-solving skills.
             </p>
           </div>
           
           {/* Queen's Engineering Society */}
           <div>
-            <h3 className="text-lg font-semibold text-blue-400 mb-2">Queen's Engineering Society</h3>
             <p className="text-white leading-relaxed text-sm">
-              Active member contributing to various engineering initiatives and community building activities within the faculty.
+              <span className="text-blue-400 font-semibold">Queen's Engineering Society:</span> Active member contributing to various engineering initiatives and community building activities within the faculty.
             </p>
           </div>
         </div>
@@ -76,42 +73,31 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="min-h-screen">
-      {/* Page Title */}
-      <section className="pt-16 pb-8 px-8 sm:px-12 lg:px-16 xl:px-20">
-        <div className="w-full text-center">
-                      <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4">
-            About Me
-          </h1>
-        </div>
-      </section>
-
-      {/* Spacer */}
-      <div className="h-8"></div>
+    <main>
 
       {/* Top Section: Profile Pic | Interactive Content */}
-      <section className="py-16 px-8 sm:px-12 lg:px-16 xl:px-20">
+      <section className="py-2 px-1 sm:px-4 lg:px-6 xl:px-8">
         <div className="w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
             
             {/* Left Column - Profile Picture (25% width) */}
             <div className="lg:col-span-1 flex justify-center lg:justify-start">
               <img 
                 src="/headshot.jpg" 
                 alt="Michael Cronin"
-                className="w-80 h-80 object-cover rounded-2xl border-4 border-blue-500/30"
+                className="w-64 h-64 object-cover rounded-2xl border-4 border-blue-500/30"
               />
             </div>
 
             {/* Right Column - Interactive Content (75% width) */}
-            <div className="lg:col-span-3 space-y-6">
+            <div className="lg:col-span-3 space-y-3">
               {/* Tab Buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {Object.entries(contentTabs).map(([key, tab]) => (
                   <button
                     key={key}
                     onClick={() => setActiveTab(key as 'why' | 'skills' | 'extracurriculars')}
-                    className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    className={`px-2 py-1 rounded-lg font-medium transition-colors ${
                       activeTab === key
                         ? 'bg-blue-600 text-white'
                         : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
@@ -123,8 +109,8 @@ export default function AboutPage() {
               </div>
 
               {/* Active Content */}
-              <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-8 min-h-[250px]">
-                <h2 className="text-2xl font-bold text-white mb-6">
+              <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-3 min-h-[200px]">
+                <h2 className="text-xl font-bold text-white mb-3">
                   {contentTabs[activeTab].title}
                 </h2>
                 {contentTabs[activeTab].content}
@@ -136,27 +122,27 @@ export default function AboutPage() {
       </section>
 
       {/* Bottom Section: Educational Background & Awards | Hobbies */}
-      <section className="py-12 px-8 sm:px-12 lg:px-16 xl:px-20">
+      <section className="px-1 sm:px-3 lg:px-4 xl:px-6">
         <div className="w-full">
-                      <div className="space-y-12">
+          <div className="space-y-4">
             
             {/* Educational Background & Awards Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Left Column - Educational Background */}
               <div>
-                <h2 className="text-3xl font-bold text-white mb-6 text-center">
+                <h2 className="text-2xl font-bold text-white mb-3 text-center">
                   Educational Background
                 </h2>
-                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-8 space-y-4">
+                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-4 space-y-2 h-64">
                   {/* Degree & School */}
                   <div>
-                    <h3 className="text-xl font-bold text-blue-400 mb-2">
+                    <h3 className="text-lg font-bold text-blue-400 mb-1">
                       {personalInfo.education.degree}
                     </h3>
-                    <h4 className="text-lg text-slate-300 mb-2">
+                    <h4 className="text-lg text-slate-300 mb-1">
                       {personalInfo.education.school}
                     </h4>
-                    <div className="flex items-center space-x-4 mb-3">
+                    <div className="flex items-center space-x-4 mb-2">
                       <span className="text-lg font-semibold text-blue-400">GPA: </span>
                       <span className="text-slate-300 font-medium">{personalInfo.education.gpa}</span>
                     </div>
@@ -164,14 +150,14 @@ export default function AboutPage() {
                   
                   {/* Relevant Courses */}
                   <div>
-                    <h5 className="text-lg font-semibold text-blue-400 mb-2">
+                    <h5 className="text-lg font-semibold text-blue-400 mb-1">
                       Relevant Courses
                     </h5>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-1">
                       {personalInfo.education.relevantCourses.map((course, index) => (
                         <div 
                           key={index}
-                          className="bg-slate-600/30 rounded px-3 py-2"
+                          className="bg-slate-600/30 rounded"
                         >
                           <span className="text-slate-300 text-xs">
                             {course}
@@ -185,32 +171,32 @@ export default function AboutPage() {
 
               {/* Right Column - Awards */}
               <div>
-                <h2 className="text-3xl font-bold text-white mb-6 text-center">
+                <h2 className="text-2xl font-bold text-white mb-3 text-center">
                   Awards & Recognition
                 </h2>
-                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-8 space-y-4">
+                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-4 space-y-3 h-64">
                   {/* Awards Summary */}
                   <div>
-                    <h3 className="text-xl font-bold text-blue-400 mb-2">
+                    <h3 className="text-xl font-bold text-blue-400 mb-1">
                       Academic & Professional Recognition
                     </h3>
-                    <p className="text-lg text-slate-300 mb-3">
+                    <p className="text-lg text-slate-300 mb-2">
                       Recognized for excellence in academics, research, and innovation
                     </p>
                   </div>
                   
                   {/* Awards Grid */}
                   <div>
-                    <h5 className="text-lg font-semibold text-blue-400 mb-2">
+                    <h5 className="text-lg font-semibold text-blue-400 mb-1">
                       Key Achievements
                     </h5>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-2">
                       {personalInfo.awards.map((award, index) => (
                         <div 
                           key={index}
-                          className="bg-slate-600/30 rounded px-3 py-2 flex items-center space-x-3"
+                          className="bg-slate-600/30 rounded px-2 py-1 flex items-center space-x-2"
                         >
-                          <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                             <span className="text-white font-bold text-xs">🏆</span>
                           </div>
                           <span className="text-slate-300 text-xs">
@@ -226,11 +212,11 @@ export default function AboutPage() {
 
             {/* Hobbies & Interests - Full Width */}
             <div>
-              <h2 className="text-3xl font-bold text-white mb-6 text-center">
+              <h2 className="text-2xl font-bold text-white mb-3 text-center">
                 Hobbies & Interests
               </h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
                 {personalInfo.hobbies.map((hobby, index) => {
                   const imagePath = hobbyImages[hobby];
                   const imageExists = true; // All images now exist
@@ -238,10 +224,10 @@ export default function AboutPage() {
                   return (
                     <div 
                       key={index}
-                      className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-6 hover:bg-slate-700/50 transition-colors"
+                      className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl hover:bg-slate-700/50 transition-colors"
                     >
                       <div className="text-center p-2">
-                        <div className="w-full h-32 bg-slate-600 rounded-lg mb-4 overflow-hidden relative">
+                        <div className="w-full h-24 bg-slate-600 rounded-lg mb-2 overflow-hidden relative">
                           {imageExists ? (
                             <img 
                               src={imagePath}
@@ -254,7 +240,7 @@ export default function AboutPage() {
                             </div>
                           )}
                         </div>
-                        <p className="text-white leading-relaxed text-sm px-2">
+                        <p className="text-white leading-relaxed text-xs px-1">
                           {hobby}
                         </p>
                       </div>
