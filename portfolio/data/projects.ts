@@ -72,9 +72,9 @@ Advanced features include intelligent project filtering by category and technolo
 The website demonstrates modern web development practices including responsive design with Tailwind CSS, TypeScript for type safety, component composition patterns, SEO optimization, and performance optimization for fast loading times. The project showcases both technical expertise and design sensibilities, serving as both a functional portfolio and a demonstration of front-end development capabilities.
 
 Additional features include animated navbar with hover effects, project cards with technology badges, modal system for detailed project views, contact form integration, and smooth scrolling animations throughout the site.`,
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design', 'SEO', 'Git', 'GitHub Pages', 'Component Architecture'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design', 'SEO', 'Git', 'Vercel', 'Component Architecture'],
     githubUrl: 'https://github.com/mcronin4/mcronin4.github.io',
-    liveUrl: 'https://mcronin4.github.io',
+    liveUrl: 'https://michael-cronin.com',
     imageUrl: '/icon.png',
     heroImageUrl: '/website_hero.png',
     category: 'web',
