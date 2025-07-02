@@ -13,7 +13,7 @@ export default function AboutPage() {
     'Coding / Hackathons': '/coding.jpg',
     'Skiing': '/skiing.jpg',
     'Volleyball': '/volleyball.jpg',
-    'Crosswords / mental puzzles': '/crossword.jpg'
+    'Crosswords / Puzzles': '/crossword_hero.png'
   };
 
   const contentTabs = {
