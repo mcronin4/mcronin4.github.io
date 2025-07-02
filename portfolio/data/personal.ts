@@ -32,7 +32,7 @@ export const personalInfo: PersonalInfo = {
     'Coding / Hackathons',
     'Skiing',
     'Volleyball',
-    'Crosswords / mental puzzles'
+    'Crosswords / Puzzles'
   ],
   awards: [
     'Nellie & Ralph Jeffery Award in Mathematics (for highest GPA in Math courses)',
