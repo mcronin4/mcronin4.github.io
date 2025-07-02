@@ -1,13 +1,14 @@
 import React from 'react';
 import { personalInfo } from '../../data/personal';
+import { Github } from 'lucide-react';
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-slate-900">
+    <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-6 px-2 sm:px-4 lg:px-6 bg-slate-900">
+      <section className="py-3 px-2 sm:px-4 lg:px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
             Let's Connect
           </h1>
           <p className="text-base text-slate-300 max-w-3xl mx-auto">
@@ -17,101 +18,109 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information */}
-      <section className="py-6 px-2 sm:px-4 lg:px-6 bg-slate-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
+      <section className="flex-1 flex items-center py-4 px-2 sm:px-4 lg:px-6">
+        <div className="max-w-7xl mx-auto w-full">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             {/* Left Column - Contact Details */}
             <div className="text-center">
-              <h2 className="text-xl font-bold text-white mb-3">
-                Get in Touch
-              </h2>
-              <div className="space-y-2 inline-block text-left">
-                {/* Email */}
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <span className="text-blue-400 text-base">📧</span>
+              <div className="bg-slate-800/80 rounded-2xl p-6 shadow-lg inline-block">
+                <h2 className="text-2xl font-bold text-white mb-4">
+                  Get in Touch
+                </h2>
+                <div className="space-y-4 text-left">
+                  {/* Email */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                      <span className="text-blue-400 text-2xl">📧</span>
+                    </div>
+                    <div>
+                      <p className="text-slate-400 text-base">Email</p>
+                      <a 
+                        href={`mailto:${personalInfo.email}`}
+                        className="text-blue-400 hover:text-blue-300 font-medium text-lg"
+                      >
+                        {personalInfo.email}
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-slate-400 text-xs">Email</p>
-                    <a 
-                      href={`mailto:${personalInfo.email}`}
-                      className="text-blue-400 hover:text-blue-300 font-medium text-sm"
-                    >
-                      {personalInfo.email}
-                    </a>
+                  {/* Phone */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                      <span className="text-blue-400 text-2xl">📱</span>
+                    </div>
+                    <div>
+                      <p className="text-slate-400 text-base">Phone</p>
+                      <a 
+                        href={`tel:${personalInfo.phone}`}
+                        className="text-blue-400 hover:text-blue-300 font-medium text-lg"
+                      >
+                        {personalInfo.phone}
+                      </a>
+                    </div>
                   </div>
-                </div>
-                {/* Phone */}
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <span className="text-blue-400 text-base">📱</span>
-                  </div>
-                  <div>
-                    <p className="text-slate-400 text-xs">Phone</p>
-                    <a 
-                      href={`tel:${personalInfo.phone}`}
-                      className="text-blue-400 hover:text-blue-300 font-medium text-sm"
-                    >
-                      {personalInfo.phone}
-                    </a>
-                  </div>
-                </div>
-                {/* Location */}
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <span className="text-blue-400 text-base">📍</span>
-                  </div>
-                  <div>
-                    <p className="text-slate-400 text-xs">Location</p>
-                    <p className="text-blue-400 font-medium text-sm">
-                      {personalInfo.location}
-                    </p>
+                  {/* Location */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                      <span className="text-blue-400 text-2xl">📍</span>
+                    </div>
+                    <div>
+                      <p className="text-slate-400 text-base">Location</p>
+                      <p className="text-blue-400 font-medium text-lg">
+                        {personalInfo.location}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Center Column - Profile Image */}
-            <div className="flex justify-center">
+            <div className="flex justify-center items-center">
               <img 
                 src="/headshot.jpg" 
                 alt="Michael Cronin"
-                className="w-40 h-40 object-cover rounded-2xl border-4 border-blue-500/30"
+                className="w-64 h-64 object-cover rounded-2xl border-4 border-blue-500/30"
               />
             </div>
 
             {/* Right Column - Social Links */}
             <div className="text-center">
-              <h3 className="text-xl font-bold text-white mb-3">
-                Find Me Online
-              </h3>
-              <div className="space-y-2 inline-block">
-                {/* GitHub */}
-                <a
-                  href={`https://github.com/${personalInfo.github}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 rounded-lg p-3 transition-colors"
-                >
-                  <span className="text-xl">🐱</span>
-                  <div>
-                    <p className="text-white font-medium text-sm">GitHub</p>
-                    <p className="text-slate-400 text-xs">{personalInfo.github}</p>
-                  </div>
-                </a>
-                {/* LinkedIn */}
-                <a
-                  href={`https://www.linkedin.com/in/${personalInfo.linkedin}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 rounded-lg p-3 transition-colors"
-                >
-                  <span className="text-xl">💼</span>
-                  <div>
-                    <p className="text-white font-medium text-sm">LinkedIn</p>
-                    <p className="text-slate-400 text-xs">michael-cronin</p>
-                  </div>
-                </a>
+              <div className="bg-slate-800/80 rounded-2xl p-6 shadow-lg inline-block">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Find Me Online
+                </h3>
+                <div className="space-y-4 text-left">
+                  {/* GitHub */}
+                  <a
+                    href={`https://github.com/${personalInfo.github}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-4 transition-colors"
+                  >
+                    <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                      <Github className="w-7 h-7 text-blue-400" />
+                    </div>
+                    <div>
+                      <p className="text-slate-400 text-base">GitHub</p>
+                      <span className="text-blue-400 font-medium text-lg">{personalInfo.github}</span>
+                    </div>
+                  </a>
+                  {/* LinkedIn */}
+                  <a
+                    href={`https://www.linkedin.com/in/${personalInfo.linkedin}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-4 transition-colors"
+                  >
+                    <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                      <span className="text-blue-400 text-2xl">💼</span>
+                    </div>
+                    <div>
+                      <p className="text-slate-400 text-base">LinkedIn</p>
+                      <span className="text-blue-400 font-medium text-lg">michael-cronin</span>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -119,7 +128,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-6 px-2 sm:px-4 lg:px-6 bg-slate-800">
+      <section className="py-3 px-2 sm:px-4 lg:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
             Ready to Work Together?

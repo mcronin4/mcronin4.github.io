@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: 'compile-ai-news',
     title: 'Compile – AI-News Intelligence Platform',
-    description: 'Self-healing AI agent that scrapes 500+ news articles daily, clusters them into stories, and provides personalized feeds.',
+    description: 'AI-powered news intelligence platform that aggregates 500+ articles daily, clusters them into stories, and delivers personalized feeds.',
     longDescription: `Architected a comprehensive AI-powered news intelligence platform that revolutionizes how users consume and interact with news content. The system features a self-healing Crawl4AI agent that automatically generates schemas for unseen article layouts, enabling robust scraping of 500+ news pieces daily. Data is intelligently stored in Supabase for relational information and Pinecone for vector embeddings, with a real-time API exposing the content to downstream applications.
 
 The platform includes a sophisticated semantic-clustering algorithm that groups related articles into coherent "stories" and generates comprehensive summaries using Google's Gemini-2.5 language model. The React + Next.js frontend provides users with complete control over their news experience, allowing them to customize topics, adjust story rendering preferences, and rewrite articles to match their preferred tone and length.

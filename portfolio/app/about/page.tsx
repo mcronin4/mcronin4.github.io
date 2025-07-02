@@ -85,7 +85,7 @@ export default function AboutPage() {
               <img 
                 src="/headshot.jpg" 
                 alt="Michael Cronin"
-                className="w-64 h-64 object-cover rounded-2xl border-4 border-blue-500/30"
+                className="w-64 h-64 object-cover rounded-2xl border-4 border-blue-500/30 hover:border-blue-500/50 transition-colors"
               />
             </div>
 
@@ -109,7 +109,7 @@ export default function AboutPage() {
               </div>
 
               {/* Active Content */}
-              <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-3 min-h-[200px]">
+              <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-3 min-h-[200px] hover:bg-slate-700/50 transition-colors">
                 <h2 className="text-xl font-bold text-white mb-3">
                   {contentTabs[activeTab].title}
                 </h2>
@@ -133,7 +133,7 @@ export default function AboutPage() {
                 <h2 className="text-2xl font-bold text-white mb-3 text-center">
                   Educational Background
                 </h2>
-                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-4 space-y-2 h-64">
+                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-4 space-y-2 h-64 hover:bg-slate-700/50 transition-colors">
                   {/* Degree & School */}
                   <div>
                     <h3 className="text-lg font-bold text-blue-400 mb-1">
@@ -174,7 +174,7 @@ export default function AboutPage() {
                 <h2 className="text-2xl font-bold text-white mb-3 text-center">
                   Awards & Recognition
                 </h2>
-                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-4 space-y-3 h-64">
+                <div className="bg-slate-700/30 backdrop-blur-sm border border-slate-600 rounded-xl p-4 space-y-3 h-64 hover:bg-slate-700/50 transition-colors">
                   {/* Awards Summary */}
                   <div>
                     <h3 className="text-xl font-bold text-blue-400 mb-1">

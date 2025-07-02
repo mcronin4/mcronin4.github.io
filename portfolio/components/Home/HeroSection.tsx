@@ -83,9 +83,9 @@ export default function HeroSection({ onTypewriterComplete, children }: HeroSect
           } : {}}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
-          <span className="border-r-2 border-white pr-1">
+          <span>
             {displayedText}
-            {isTyping && <span className="animate-pulse">|</span>}
+            <span className="animate-pulse">|</span>
           </span>
         </motion.h1>
       </motion.div>
@@ -93,7 +93,7 @@ export default function HeroSection({ onTypewriterComplete, children }: HeroSect
       {/* Content area that fades in after transition */}
       {showTransition && (
         <motion.div
-          className="flex-1 relative z-10 flex items-center justify-center px-8"
+          className="flex-1 relative z-10 flex items-center justify-center px-2"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}

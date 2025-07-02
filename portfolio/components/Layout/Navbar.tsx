@@ -9,7 +9,7 @@ export default function Navbar() {
   const normalizedPathname = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-700" style={{ backgroundColor: '#010812' }}>
+    <nav className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#010812' }}>
       <div className="px-4">
         <div className="h-16 flex items-center justify-between w-full">
           {/* Logo/Brand */}

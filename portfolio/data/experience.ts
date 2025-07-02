@@ -4,7 +4,7 @@ export const experiences: Experience[] = [
   {
     id: 'celestica',
     company: 'Celestica',
-    position: 'Data Analytics Intern',
+    position: 'Data Engineering & Analytics Intern',
     duration: 'May 2024 - Present',
     description: `My role at Celestica consisted of working on the internal data analytics team of the Advanced Technology Solutions (ATS) division. Since some of my team was less technical, I was able to take a leadership role on the data engineering aspect of the team, working to increase efficiency. In one of my major projects, I restructured our production database to reduce refresh times by over 70%. I was also able to generate key data points that weren't used by the team through writing Google App Scripts (JavaScript). Additionally, I was in constant communication with the Celestica leadership team and global ATS sites to develop and maintain over 120 PowerBI dashboards to drive financial and business decisions.`,
     skills: ['Database management', 'JavaScript', 'PowerBI', 'Data Engineering', 'Google App Scripts'],

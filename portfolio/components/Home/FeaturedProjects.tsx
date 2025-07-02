@@ -15,7 +15,7 @@ export default function FeaturedProjects() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % featuredProjects.length);
-    }, 6000); // Change every 6 seconds
+    }, 10000); // Change every 10 seconds
 
     return () => clearInterval(timer);
   }, []);
