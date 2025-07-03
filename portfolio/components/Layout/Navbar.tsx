@@ -28,7 +28,7 @@ export default function Navbar() {
           </Link>
 
           {/* Navigation Links - pushed all the way right */}
-          <div className="flex items-center">
+          <div className="flex items-center overflow-x-auto whitespace-nowrap max-w-full">
             {navigationItems.map((item, index) => {
               // Normalize paths by removing trailing slashes for comparison
               const normalizedPathname = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
