@@ -13,11 +13,24 @@ interface HeroSectionProps {
 export default function HeroSection({ onTypewriterComplete, children }: HeroSectionProps) {
   const [mounted, setMounted] = useState(false);
   const [showTransition, setShowTransition] = useState(false);
+  const [contentFullyVisible, setContentFullyVisible] = useState(false);
   const { displayedText, isTyping, isComplete } = useTypewriter({
     text: "Hi,    I'm Michael.        I like to solve problems.",
     speed: 30,
     delay: 50
   });
+
+  // Prevent scrolling until transition is complete
+  useEffect(() => {
+    if (!contentFullyVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [contentFullyVisible]);
 
   useEffect(() => {
     if (isComplete && !showTransition) {
@@ -40,11 +53,12 @@ export default function HeroSection({ onTypewriterComplete, children }: HeroSect
 
   return (
     <section 
-      className="relative h-screen flex flex-col overflow-hidden"
+      className="relative min-h-screen flex flex-col overflow-x-hidden"
       style={{
         backgroundImage: 'url(/backgroundimage2.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
         backgroundColor: '#263238',
         width: '100vw',
         marginLeft: 'calc(-50vw + 50%)'
@@ -65,7 +79,7 @@ export default function HeroSection({ onTypewriterComplete, children }: HeroSect
         transition={{ duration: 1.2, ease: "easeInOut" }}
       >
         <motion.h1 
-          className="font-black text-center absolute left-1/2"
+          className="font-black text-center absolute left-1/2 w-full max-w-4xl mx-auto"
           initial={{
             fontSize: '48px',
             fontWeight: 900,
@@ -78,8 +92,12 @@ export default function HeroSection({ onTypewriterComplete, children }: HeroSect
           }}
           animate={showTransition ? {
             fontSize: '36px',
-            top: '7rem',
-            y: '0%'
+            top: '6rem',
+            y: '0%',
+            left: '50%',
+            x: '-50%',
+            width: '90vw',
+            maxWidth: '900px',
           } : {}}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
@@ -94,16 +112,18 @@ export default function HeroSection({ onTypewriterComplete, children }: HeroSect
       {showTransition && (
         <motion.div
           className="flex-1 relative z-10 flex items-center justify-center px-2"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          style={{ paddingTop: '6rem' }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          onAnimationComplete={() => setContentFullyVisible(true)}
         >
-                     <div className="w-full max-w-6xl">
-             {/* Render children content */}
-             <div className="space-y-8">
-               {children}
-             </div>
-           </div>
+          <div className="w-full max-w-6xl">
+            {/* Render children content */}
+            <div className="space-y-8">
+              {children}
+            </div>
+          </div>
         </motion.div>
       )}
     </section>
