@@ -12,6 +12,7 @@ The platform includes a sophisticated semantic-clustering algorithm that groups 
 Key features include embedding-driven "For-You" feeds that learn from user behavior, semantic search capabilities for finding relevant content, and intelligent recommendation systems. The entire platform is designed with scalability in mind, handling high-volume news ingestion while maintaining real-time responsiveness for user interactions.`,
     technologies: ['Python', 'Crawl4AI', 'Supabase', 'Pinecone', 'Google Gemini-2.5', 'React', 'Next.js', 'TypeScript', 'Vector Embeddings', 'Semantic Search', 'AI Retrieval', 'RAG', 'Real-time API', 'Web Scraping', 'Clustering Algorithms'],
     githubUrl: '', // Add if available
+    liveUrl: 'https://www.compile-news.com/home',
     demoUrl: 'https://www.loom.com/share/1a12c09d72334fceb5ec7d0136036c88?sid=4a92be44-3105-4d3c-8ad4-c765e596a94f',
     imageUrl: '/compile.ico',
     category: 'ml',
@@ -19,24 +20,25 @@ Key features include embedding-driven "For-You" feeds that learn from user behav
     year: '2025'
   },
   {
-    id: 'llm-jailbreak-defense',
-    title: 'LLM Jailbreak Defense Research Project',
-    description: 'Published research on improving LLM security by analyzing model activations to defend against jailbreaking attacks.',
-    longDescription: `Conducted cutting-edge research on Large Language Model security as part of QMIND (Queen's Machine Intelligence and Data Science), focusing on developing robust defenses against jailbreaking methods that attempt to bypass AI safety measures. The project involved deep analysis of neural network internals to understand how malicious prompts succeed in circumventing model safeguards.
+    id: 'mantis-web-crawler',
+    title: 'Mantis – AI-Powered Visual QA for Web',
+    description: 'AI-powered web crawler that automatically detects UI bugs, accessibility violations, and performance issues using multimodal AI vision.',
+    longDescription: `Built an AI-powered web accessibility and UI bug detection tool that crawls websites to discover issues before they reach production. Created at Hack the North 2025, Mantis addresses the limitations of traditional testing tools that rely on static rules or DOM inspection and miss visual bugs that only appear under specific interactions or screen states.
 
-Developed an innovative framework that significantly improves refusal rates for various LLM jailbreaking techniques while maintaining the model's performance on legitimate tasks. The approach centers on analyzing the model's internal activations to identify relevant groups of neurons (features) that are crucial for safety mechanisms. By strategically boosting or suppressing these identified features, the system can better detect and refuse potentially harmful requests without degrading the model's helpful capabilities.
+The system features a BFS-powered crawler with smart link discovery and session management, using Playwright to simulate real user behavior including clicks, scrolls, and viewport resizing. The AI Inspector uses multimodal vision models to detect issues that traditional tools miss: off-screen elements, overlapping components, broken images, and disabled interactions.
 
-The research involved extensive experimentation with different activation patterns, feature selection algorithms, and intervention strategies. Key technical contributions include novel methods for identifying safety-relevant neural pathways and developing efficient techniques for real-time feature manipulation during inference.
-
-The work culminated in a peer-reviewed paper co-authored and published at CUCAI (Canadian Undergraduate Conference on Artificial Intelligence), demonstrating the practical effectiveness and theoretical significance of the proposed defense mechanisms. This research contributes to the broader field of AI safety and responsible AI development.`,
-    technologies: ['Python', 'PyTorch', 'Transformers', 'Neural Network Analysis', 'Feature Engineering', 'AI Safety', 'Research Methodology', 'Academic Writing'],
-    githubUrl: '', // Add if available
-    imageUrl: '/qmind.png',
-    heroImageUrl: '/jailbreak_hero.png',
-    category: 'research',
-    featured: true,
-    year: '2024-2025'
+Key technical achievements include prompt-engineering multimodal models for UI issue detection, efficient async crawling with dynamic viewport capturing, and developer-first experience design with actionable reports that link issues directly to DOM nodes with fix suggestions. The tool integrates seamlessly into CI/CD pipelines and GitHub Actions, enabling developers to catch bugs before merge and reduce QA load through automated visual health checks.`,
+    technologies: ['Python', 'Playwright', 'Cohere AI', 'Computer Vision', 'WebSocket', 'axe-core', 'Browser Automation', 'Accessibility Testing', 'CI/CD Integration', 'PyPI Package'],
+    githubUrl: 'https://github.com/ColinG03/mantis',
+    liveUrl: 'https://pypi.org/project/mantis-web-crawler/1.4.0/',
+    demoUrl:'https://www.youtube.com/watch?v=jMbZNe5SsH8',
+    imageUrl: '/mantis.ico', // You'll need to add this image
+    category: 'ml',
+    featured: false,
+    year: '2025',
+    heroImageUrl: '/mantis_hero.png' // You'll need to add this image
   },
+
   {
     id: 'chameleon-ai-content',
     title: 'Chameleon - AI-Powered Content Adaptation Platform',
@@ -58,6 +60,49 @@ The project demonstrates exceptional engineering skills by delivering a producti
     category: 'ml',
     featured: true,
     year: '2025'
+  },
+
+  {
+    id: 'scrappers-cup-tennis-ladder',
+    title: 'Scrappers Cup - Tennis Ladder Management System',
+    description: 'Full-stack web application for managing tennis tournament ladder rankings with poison ladder system, admin controls, and real-time match tracking.',
+    longDescription: `Developed a comprehensive tennis tournament management system featuring an innovative "poison ladder" ranking algorithm where winners move up to the loser's position, creating dynamic and engaging competition dynamics. The system provides a complete solution for tennis tournaments with sophisticated player management, match tracking, and automated ranking calculations.
+  
+  The application features a robust authentication system using email allowlists with role-based access control, distinguishing between regular viewers and administrators. The admin panel provides comprehensive tournament management capabilities including match result entry with detailed set-by-set scoring, tiebreaker handling, match history management with edit/delete functionality, and player lifecycle management.
+  
+  The core ranking system implements advanced algorithms for maintaining rank integrity, including automatic rank normalization to fix gaps and duplicates, timeline-based ranking reconstruction that replays all historical changes chronologically, and sophisticated conflict resolution when multiple rank adjustments occur. The system handles complex scenarios like player deactivation/reactivation while preserving ranking history.
+  
+  Key technical achievements include a mobile-first responsive design optimized for tournament officials using phones, real-time ranking updates after each match entry, comprehensive testing suite with unit tests for ladder logic and integration tests for complex scenarios, and robust error handling with graceful fallbacks. The platform maintains complete audit trails of all ranking changes and supports manual rank adjustments when needed.
+  
+  The system demonstrates strong software engineering practices with TypeScript for type safety, comprehensive test coverage using Vitest, modular component architecture, and efficient database design with proper foreign key relationships and constraints. Built to handle the complexities of real tournament management while maintaining data integrity and providing an intuitive user experience.`,
+    technologies: ['Next.js', 'React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vitest', 'Row Level Security', 'Email Authentication', 'Responsive Design', 'RESTful APIs', 'Real-time Updates'],
+    githubUrl: 'https://github.com/mcronin4/scrappers-cup', // Add if available
+    liveUrl: '', // Add if deployed
+    demoUrl: 'https://www.loom.com/share/8e413a9c9e2f4c3588f87bc8444447d6?sid=4050dbaf-1314-43f4-8ee3-96ce89ebc5be%5C', // Add if available
+    imageUrl: '/tennis-ladder.png', // You'll need to add this image
+    heroImageUrl: '/scrappers-cup-hero.png', // You'll need to add this image
+    category: 'web',
+    featured: false,
+    year: '2025'
+  },
+  {
+    id: 'llm-jailbreak-defense',
+    title: 'LLM Jailbreak Defense Research Project',
+    description: 'Published research on improving LLM security by analyzing model activations to defend against jailbreaking attacks.',
+    longDescription: `Conducted cutting-edge research on Large Language Model security as part of QMIND (Queen's Machine Intelligence and Data Science), focusing on developing robust defenses against jailbreaking methods that attempt to bypass AI safety measures. The project involved deep analysis of neural network internals to understand how malicious prompts succeed in circumventing model safeguards.
+
+Developed an innovative framework that significantly improves refusal rates for various LLM jailbreaking techniques while maintaining the model's performance on legitimate tasks. The approach centers on analyzing the model's internal activations to identify relevant groups of neurons (features) that are crucial for safety mechanisms. By strategically boosting or suppressing these identified features, the system can better detect and refuse potentially harmful requests without degrading the model's helpful capabilities.
+
+The research involved extensive experimentation with different activation patterns, feature selection algorithms, and intervention strategies. Key technical contributions include novel methods for identifying safety-relevant neural pathways and developing efficient techniques for real-time feature manipulation during inference.
+
+The work culminated in a peer-reviewed paper co-authored and published at CUCAI (Canadian Undergraduate Conference on Artificial Intelligence), demonstrating the practical effectiveness and theoretical significance of the proposed defense mechanisms. This research contributes to the broader field of AI safety and responsible AI development.`,
+    technologies: ['Python', 'PyTorch', 'Transformers', 'Neural Network Analysis', 'Feature Engineering', 'AI Safety', 'Research Methodology', 'Academic Writing'],
+    githubUrl: '', // Add if available
+    imageUrl: '/qmind.png',
+    heroImageUrl: '/jailbreak_hero.png',
+    category: 'research',
+    featured: true,
+    year: '2024-2025'
   },
   {
     id: 'portfolio-website',
@@ -143,6 +188,7 @@ Additional features include animated navbar with hover effects, project cards wi
     year: '2022',
     heroImageUrl: '/hurricane_hero.png'
   }
+
 ];
 
 export const featuredProjects = projects.filter(project => project.featured); 
