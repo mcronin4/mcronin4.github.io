@@ -32,7 +32,7 @@ Key technical achievements include prompt-engineering multimodal models for UI i
     githubUrl: 'https://github.com/ColinG03/mantis',
     liveUrl: 'https://pypi.org/project/mantis-web-crawler/1.4.0/',
     demoUrl:'https://www.youtube.com/watch?v=jMbZNe5SsH8',
-    imageUrl: '/mantis.ico', // You'll need to add this image
+    imageUrl: '/mantis.png', // You'll need to add this image
     category: 'ml',
     featured: false,
     year: '2025',
