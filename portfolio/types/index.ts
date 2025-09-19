@@ -47,7 +47,10 @@ export interface PersonalInfo {
     gpa: string;
     relevantCourses: string[];
   };
-  hobbies: string[];
+  hobbies: {
+    name: string;
+    description: string;
+  }[];
   awards: string[];
 }
 
