@@ -20,6 +20,26 @@ Key features include embedding-driven "For-You" feeds that learn from user behav
     year: '2025'
   },
   {
+    id: 'micra-content-agent',
+    title: 'MiCRA – Multimodal Content Repurposing Agent',
+    description: 'Source-aware content repurposing agent that ingests long-form content and generates platform-specific outputs with cross-reference alignment and consistency checking.',
+    longDescription: `I led the development of MiCRA (Multi-Input Content Repurposing Agent) for Project X, a Toronto-based AI/data consulting firm. This sophisticated content repurposing system transforms long-form content into platform-specific outputs while maintaining consistency across multiple sources. Unlike simple "prompt-in, content-out" tools, MiCRA performs cross-reference alignment between multiple inputs to ensure terminological consistency, avoid hallucinations, and detect mismatches.
+
+The system features a multi-input ingestion layer that accepts variable inputs including raw text, transcripts from YouTube/Zoom/Whisper, and structured metadata. Preprocessing includes sentence segmentation, entity extraction, speaker attribution, and syntactic cleanup. The core differentiator is the Source-Aware Consistency Engine that performs cross-document entity matching, alignment scoring, and term normalization to ensure accuracy across all sources.
+
+Built on Google's Gemini LLM backbone, the generation pipeline includes a structured prompt builder that constructs prompts with extracted key ideas, target formats, and platform constraints. The Response Normalizer post-processes outputs to check terminology consistency and factual alignment with source texts. The system supports multiple output formats including LinkedIn posts, emails, tweet threads, academic summaries, and meeting notes, all with enforced structure, tone, and length constraints.
+
+Key technical achievements include cross-document grounding to reduce hallucinations, context-awareness across multiple inputs using entity-level matching, platform-specific generation with tone and format constraints, and a flexible template-driven prompt system. The architecture demonstrates advanced understanding of multi-modal content processing and consistency validation in AI-generated content.`,
+    technologies: ['Python', 'Google Gemini', 'Natural Language Processing', 'Entity Recognition', 'Cross-Document Analysis', 'Content Generation', 'Multi-Modal Processing', 'Template Systems', 'API Design', 'Text Preprocessing'],
+    githubUrl: 'https://github.com/mcronin4/MiCRA',
+    liveUrl: 'https://mi-cra.vercel.app/',
+    imageUrl: '/qmind.png',
+    heroImageUrl: '/system_design.png',
+    category: 'ml',
+    featured: false,
+    year: '2024-2025'
+  },
+  {
     id: 'mantis-web-crawler',
     title: 'Mantis – AI-Powered Visual QA for Web',
     description: 'AI-powered web crawler that automatically detects UI bugs, accessibility violations, and performance issues using multimodal AI vision.',
