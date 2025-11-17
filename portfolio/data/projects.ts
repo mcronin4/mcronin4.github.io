@@ -20,6 +20,25 @@ Key features include embedding-driven "For-You" feeds that learn from user behav
     year: '2025'
   },
   {
+    id: 'qec-2025-snowplow',
+    title: 'Plow Kingston - Optimal Snowplow Routing System',
+    description: 'Winner of QEC 2025 Programming Competition. Full-stack web application that optimizes snowplow routing using intelligent algorithms and real-time visualization.',
+    longDescription: `Winner of the QEC 2025 Programming Competition. This full-stack application addresses snowplow routing optimization in urban environments through an interactive web-based simulation system.
+
+The system visualizes real-world road networks using actual geographic road data (GeoJSON format) and implements a dynamic storm simulation that continuously deposits snow across the network. The platform features intelligent routing algorithms including a Finite Horizon Greedy policy that optimizes reward-to-time ratio within a time budget, using depth-first search to evaluate paths and calculate rewards based on importance, snow depth, and road length.
+
+The interactive web interface provides real-time map visualization with OpenStreetMap integration, snow depth heatmaps, plow movement tracking, and statistical analysis. Built with Next.js frontend and FastAPI backend, deployed on Vercel with serverless functions.`,
+    technologies: ['Next.js 14', 'React 18', 'TypeScript', 'FastAPI', 'Python', 'Tailwind CSS', 'Routing Algorithms', 'Graph Algorithms'],
+    githubUrl: 'https://github.com/mcronin4/plow_kingston',
+    liveUrl: 'https://plowking.vercel.app/',
+    demoUrl: '',
+    imageUrl: '/qec.png',
+    heroImageUrl: '/plowking.png',
+    category: 'ml',
+    featured: false,
+    year: '2025'
+  },
+  {
     id: 'micra-content-agent',
     title: 'MiCRA – Multimodal Content Repurposing Agent',
     description: 'Source-aware content repurposing agent that ingests long-form content and generates platform-specific outputs with cross-reference alignment and consistency checking.',
