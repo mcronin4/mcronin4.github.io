@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": [
+        "-c",
+        "export PATH=/nix/store/3scj3c1qxh5iclf8jy5hbl9pki40y77n-nodejs-22.19.0/bin:$PATH; cd portfolio && exec npm run dev"
+      ],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}

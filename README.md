@@ -6,16 +6,16 @@ A modern, responsive portfolio website showcasing my projects, experience, and s
 
 ## 🚀 Features
 
-### 🎨 Modern Design
-- Clean, professional dark theme with blue accent colors
-- Fully responsive design optimized for all devices
-- Smooth animations and transitions using Framer Motion
-- Interactive typewriter effect on the homepage
+### 🎨 Design
+- Typography-led layout: Instrument Serif for headings, Inter for body text, JetBrains Mono for labels
+- Warm light palette with a single accent colour, and a dark palette that follows the system setting
+- No hero backgrounds, gradients, or typewriter intros; content is the design
+- Fully responsive down to phone widths
 
 ### 📱 Dynamic Content
 - **Projects**: Filterable project grid with category and technology filters
-- **About**: Interactive tabbed content with hover effects
-- **Experience**: Card-based layout showcasing work history
+- **About**: Bio, education, awards, toolbox, and interests
+- **Work**: Timeline of roles at Exa, SaxeCap, Celestica, QMIND, and Queen's
 - **Contact**: Professional contact information with social links
 
 ### 🛠 Advanced Functionality
@@ -29,7 +29,6 @@ A modern, responsive portfolio website showcasing my projects, experience, and s
 ### Frontend
 - **Framework**: Next.js 15 with TypeScript
 - **Styling**: Tailwind CSS for responsive design
-- **Animations**: Framer Motion for smooth transitions
 - **Icons**: Lucide React for consistent iconography
 
 ### Development Tools

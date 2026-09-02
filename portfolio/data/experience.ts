@@ -2,28 +2,59 @@ import { Experience } from '../types';
 
 export const experiences: Experience[] = [
   {
+    id: 'exa',
+    company: 'Exa',
+    role: 'Software Engineer',
+    start: 'Jun 2026',
+    end: 'Present',
+    location: 'San Francisco, CA',
+    summary:
+      'Exa is the search engine built for AI: a web-scale index and retrieval API that agents and LLM applications use to find and read the web.',
+    highlights: [],
+    tags: ['Search', 'AI'],
+    link: 'https://exa.ai',
+    current: true,
+  },
+  {
+    id: 'saxecap',
+    company: 'SaxeCap',
+    role: 'Forward Deployed Engineer',
+    start: 'Oct 2025',
+    end: 'Mar 2026',
+    summary:
+      'SaxeCap is an AI private equity firm that buys traditional businesses and transforms them with AI. I worked directly with portfolio and partner companies to scope, build, and ship AI and automation systems into their operations.',
+    highlights: [],
+    tags: ['LLM systems', 'Automation', 'Python', 'Data pipelines'],
+    link: 'https://saxecap.com',
+  },
+  {
     id: 'celestica',
     company: 'Celestica',
-    position: 'Data Engineering & Analytics Intern',
-    duration: 'May 2024 - Present',
-    description: `My role at Celestica consisted of working on the internal data analytics team of the Advanced Technology Solutions (ATS) division. Since some of my team was less technical, I was able to take a leadership role on the data engineering aspect of the team, working to increase efficiency. In one of my major projects, I restructured our production database to reduce refresh times by over 70%. I was also able to generate key data points that weren't used by the team through writing Google App Scripts (JavaScript). Additionally, I was in constant communication with the Celestica leadership team and global ATS sites to develop and maintain over 120 PowerBI dashboards to drive financial and business decisions.`,
-    skills: ['Database management', 'JavaScript', 'PowerBI', 'Data Engineering', 'Google App Scripts'],
-    current: true
+    role: 'Data Engineering Intern',
+    start: 'May 2024',
+    end: 'Aug 2025',
+    location: 'Toronto, ON',
+    summary:
+      'Data engineering for the Advanced Technology Solutions analytics team.',
+    highlights: [
+      'Redesigned and migrated the supply chain database schema, cutting refresh latency by 70% and enabling near real-time KPIs.',
+      'Built automated ETL pipelines in Python and JavaScript over Google APIs, making it routine to onboard new data sources across supply chain systems.',
+      'Developed and maintained 100+ PowerBI dashboards used by executives and by ML pilot programs.',
+    ],
+    tags: ['Python', 'JavaScript', 'SQL', 'PowerBI', 'Google Apps Script'],
+    link: 'https://www.celestica.com/',
   },
   {
-    id: 'queens-researcher',
-    company: 'Queen\'s Department of Mathematics and Statistics',
-    position: 'Research Assistant',
-    duration: 'May 2023 - August 2023',
-    description: `I was awarded an NSERC USRA grant to support my control theory research with professor Kexue Zhang. My research primarily focused on developing sufficient conditions for input-to-state stability of non-linear systems on time scales in terms of two measures. In layman's terms, I worked to develop and prove mathematical conditions that allowed us to determine if a complicated system of differential equations was "input-to-state stable" without actually needing to solve the equation itself, which is often impossible. Beyond the technical proofs, I also extensively used MATLAB to simulate these systems and test our findings.`,
-    skills: ['Research skills', 'MATLAB modelling', 'Control theory', 'Mathematical proofs', 'Academic writing']
+    id: 'queens-research',
+    company: "Queen's University, Mathematics & Statistics",
+    role: 'Undergraduate Researcher',
+    start: 'May 2023',
+    end: 'Aug 2023',
+    location: 'Kingston, ON',
+    summary:
+      'NSERC-funded control theory research with Professor Kexue Zhang: sufficient conditions for input-to-state stability of nonlinear systems on time scales, proved without solving the underlying equations, and checked in MATLAB.',
+    highlights: [],
+    tags: ['Control theory', 'Mathematical proofs', 'MATLAB'],
+    link: '/USRA_2023_Report__ISS_in_terms_of_two_measures.pdf',
   },
-  {
-    id: 'queens-ta',
-    company: 'Queen\'s University',
-    position: 'Teaching Assistant',
-    duration: 'May 2023 - August 2023',
-    description: `I worked as a teaching assistant for APSC 174, an introductory course to linear algebra for first-year engineers. I taught weekly tutorials and answered questions by email. The course covered basic linear algebra such as vector spaces, set theory, linear transformations, matrices, determinants, eigenvalues and eigenvectors. I received very positive feedback on my teaching style, and was additionally hired by the Math department to run general group study sessions for all first-year math classes.`,
-    skills: ['Presentation skills', 'Linear algebra', 'Teaching', 'Communication', 'Leadership']
-  }
-]; 
+];
