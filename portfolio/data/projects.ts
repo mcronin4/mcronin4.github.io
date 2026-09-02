@@ -3,231 +3,172 @@ import { Project } from '../types';
 export const projects: Project[] = [
   {
     id: 'compile-ai-news',
-    title: 'Compile – AI-News Intelligence Platform',
-    description: 'AI-powered news intelligence platform that aggregates 500+ articles daily, clusters them into stories, and delivers personalized feeds.',
-    longDescription: `Architected a comprehensive AI-powered news intelligence platform that revolutionizes how users consume and interact with news content. The system features a self-healing Crawl4AI agent that automatically generates schemas for unseen article layouts, enabling robust scraping of 500+ news pieces daily. Data is intelligently stored in Supabase for relational information and Pinecone for vector embeddings, with a real-time API exposing the content to downstream applications.
+    title: 'Compile',
+    tagline: 'AI news intelligence platform',
+    description:
+      'Ingests 500+ articles a day, clusters them into stories, and builds a personalized feed with semantic search and tone-adjustable rewrites.',
+    longDescription: `Compile is a news reader I built end to end. A self-healing Crawl4AI pipeline ingests 500+ articles a day, generating extraction schemas on the fly for layouts it has not seen before. Articles land in Supabase for relational data and Pinecone for embeddings, behind a real-time API that the frontend and downstream jobs read from.
 
-The platform includes a sophisticated semantic-clustering algorithm that groups related articles into coherent "stories" and generates comprehensive summaries using Google's Gemini-2.5 language model. The React + Next.js frontend provides users with complete control over their news experience, allowing them to customize topics, adjust story rendering preferences, and rewrite articles to match their preferred tone and length.
-
-Key features include embedding-driven "For-You" feeds that learn from user behavior, semantic search capabilities for finding relevant content, and intelligent recommendation systems. The entire platform is designed with scalability in mind, handling high-volume news ingestion while maintaining real-time responsiveness for user interactions.`,
-    technologies: ['Python', 'Crawl4AI', 'Supabase', 'Pinecone', 'Google Gemini-2.5', 'React', 'Next.js', 'TypeScript', 'Vector Embeddings', 'Semantic Search', 'AI Retrieval', 'RAG', 'Real-time API', 'Web Scraping', 'Clustering Algorithms'],
-    githubUrl: '', // Add if available
+A semantic clustering step groups related coverage into a single story and summarizes each one with Gemini 2.5, so you read one well-sourced piece instead of twelve near-duplicates. The Next.js frontend has a "For You" feed driven by embeddings of what you actually read, semantic search across the corpus, and controls to rewrite any story to the tone and length you want.`,
+    technologies: ['Python', 'Next.js', 'TypeScript', 'Supabase', 'Pinecone', 'Temporal', 'Crawl4AI', 'Gemini 2.5', 'Vercel'],
     liveUrl: 'https://www.compile-news.com/home',
     demoUrl: 'https://www.loom.com/share/1a12c09d72334fceb5ec7d0136036c88?sid=4a92be44-3105-4d3c-8ad4-c765e596a94f',
-    imageUrl: '/compile.ico',
+    heroImageUrl: '/compile_hero.jpg',
     category: 'ml',
     featured: true,
-    year: '2025'
-  },
-  {
-    id: 'qec-2025-snowplow',
-    title: 'Plow Kingston - Optimal Snowplow Routing System',
-    description: 'Winner of QEC 2025 Programming Competition. Full-stack web application that optimizes snowplow routing using intelligent algorithms and real-time visualization.',
-    longDescription: `Winner of the QEC 2025 Programming Competition. This full-stack application addresses snowplow routing optimization in urban environments through an interactive web-based simulation system.
-
-The system visualizes real-world road networks using actual geographic road data (GeoJSON format) and implements a dynamic storm simulation that continuously deposits snow across the network. The platform features intelligent routing algorithms including a Finite Horizon Greedy policy that optimizes reward-to-time ratio within a time budget, using depth-first search to evaluate paths and calculate rewards based on importance, snow depth, and road length.
-
-The interactive web interface provides real-time map visualization with OpenStreetMap integration, snow depth heatmaps, plow movement tracking, and statistical analysis. Built with Next.js frontend and FastAPI backend, deployed on Vercel with serverless functions.`,
-    technologies: ['Next.js 14', 'React 18', 'TypeScript', 'FastAPI', 'Python', 'Tailwind CSS', 'Routing Algorithms', 'Graph Algorithms'],
-    githubUrl: 'https://github.com/mcronin4/plow_kingston',
-    liveUrl: 'https://plowking.vercel.app/',
-    demoUrl: '',
-    imageUrl: '/qec.png',
-    heroImageUrl: '/plowking.png',
-    category: 'ml',
-    featured: false,
-    year: '2025'
-  },
-  {
-    id: 'micra-content-agent',
-    title: 'MiCRA – Multimodal Content Repurposing Agent',
-    description: 'Source-aware content repurposing agent that ingests long-form content and generates platform-specific outputs with cross-reference alignment and consistency checking.',
-    longDescription: `I led the development of MiCRA (Multi-Input Content Repurposing Agent) for Project X, a Toronto-based AI/data consulting firm. This sophisticated content repurposing system transforms long-form content into platform-specific outputs while maintaining consistency across multiple sources. Unlike simple "prompt-in, content-out" tools, MiCRA performs cross-reference alignment between multiple inputs to ensure terminological consistency, avoid hallucinations, and detect mismatches.
-
-The system features a multi-input ingestion layer that accepts variable inputs including raw text, transcripts from YouTube/Zoom/Whisper, and structured metadata. Preprocessing includes sentence segmentation, entity extraction, speaker attribution, and syntactic cleanup. The core differentiator is the Source-Aware Consistency Engine that performs cross-document entity matching, alignment scoring, and term normalization to ensure accuracy across all sources.
-
-Built on Google's Gemini LLM backbone, the generation pipeline includes a structured prompt builder that constructs prompts with extracted key ideas, target formats, and platform constraints. The Response Normalizer post-processes outputs to check terminology consistency and factual alignment with source texts. The system supports multiple output formats including LinkedIn posts, emails, tweet threads, academic summaries, and meeting notes, all with enforced structure, tone, and length constraints.
-
-Key technical achievements include cross-document grounding to reduce hallucinations, context-awareness across multiple inputs using entity-level matching, platform-specific generation with tone and format constraints, and a flexible template-driven prompt system. The architecture demonstrates advanced understanding of multi-modal content processing and consistency validation in AI-generated content.`,
-    technologies: ['Python', 'Google Gemini', 'Natural Language Processing', 'Entity Recognition', 'Cross-Document Analysis', 'Content Generation', 'Multi-Modal Processing', 'Template Systems', 'API Design', 'Text Preprocessing'],
-    githubUrl: 'https://github.com/mcronin4/MiCRA',
-    liveUrl: 'https://mi-cra.vercel.app/',
-    imageUrl: '/qmind.png',
-    heroImageUrl: '/system_design.png',
-    category: 'ml',
-    featured: false,
-    year: '2024-2025'
+    year: '2025',
   },
   {
     id: 'mantis-web-crawler',
-    title: 'Mantis – AI-Powered Visual QA for Web',
-    description: 'AI-powered web crawler that automatically detects UI bugs, accessibility violations, and performance issues using multimodal AI vision.',
-    longDescription: `Built an AI-powered web accessibility and UI bug detection tool that crawls websites to discover issues before they reach production. Created at Hack the North 2025, Mantis addresses the limitations of traditional testing tools that rely on static rules or DOM inspection and miss visual bugs that only appear under specific interactions or screen states.
+    title: 'Mantis',
+    tagline: 'Visual QA crawler for the web',
+    description:
+      'A crawler that drives a site with Playwright and hands screenshots to a multimodal model to find visual bugs and accessibility issues that DOM-based tools miss.',
+    longDescription: `Traditional QA tools inspect the DOM against static rules and miss anything that only shows up visually: overlapping components, elements pushed off-screen, broken images, controls that look enabled but are not. Mantis crawls a site breadth-first with Playwright, exercising clicks, scrolls, and viewport sizes along the way, and hands each state to a multimodal model to find those bugs.
 
-The system features a BFS-powered crawler with smart link discovery and session management, using Playwright to simulate real user behavior including clicks, scrolls, and viewport resizing. The AI Inspector uses multimodal vision models to detect issues that traditional tools miss: off-screen elements, overlapping components, broken images, and disabled interactions.
-
-Key technical achievements include prompt-engineering multimodal models for UI issue detection, efficient async crawling with dynamic viewport capturing, and developer-first experience design with actionable reports that link issues directly to DOM nodes with fix suggestions. The tool integrates seamlessly into CI/CD pipelines and GitHub Actions, enabling developers to catch bugs before merge and reduce QA load through automated visual health checks.`,
-    technologies: ['Python', 'Playwright', 'Cohere AI', 'Computer Vision', 'WebSocket', 'axe-core', 'Browser Automation', 'Accessibility Testing', 'CI/CD Integration', 'PyPI Package'],
+It ships as a PyPI package with a CLI, produces JSON reports that link every issue to a DOM node with a suggested fix, and drops into CI or GitHub Actions so problems get caught before merge. Built with three teammates at Hack the North 2025, where it was a finalist and won Best Developer Tool.`,
+    technologies: ['Python', 'Playwright', 'Cohere', 'axe-core', 'Flask', 'PyPI'],
     githubUrl: 'https://github.com/ColinG03/mantis',
-    liveUrl: 'https://pypi.org/project/mantis-web-crawler/1.4.0/',
-    demoUrl:'https://www.youtube.com/watch?v=jMbZNe5SsH8',
-    imageUrl: '/mantis.png', // You'll need to add this image
+    liveUrl: 'https://pypi.org/project/mantis-web-crawler/',
+    demoUrl: 'https://www.youtube.com/watch?v=jMbZNe5SsH8',
+    imageUrl: '/mantis.jpg',
     category: 'ml',
-    featured: false,
+    featured: true,
     year: '2025',
-    heroImageUrl: '/mantis_hero.png' // You'll need to add this image
+    recognition: 'Hack the North finalist · Best Developer Tool',
   },
-
   {
     id: 'chameleon-ai-content',
-    title: 'Chameleon - AI-Powered Content Adaptation Platform',
-    description: 'Award-winning hackathon project that transforms long-form content into platform-optimized social media posts using advanced AI retrieval.',
-    longDescription: `Built in just 24 hours during the HackAI Toronto hackathon, Chameleon won the "Best AI Retrieval Project" award and $400 in BestBuy gift cards for demonstrating the most sophisticated implementation of contextual AI retrieval.
+    title: 'Chameleon',
+    tagline: 'Content adaptation agent',
+    description:
+      'Turns articles and YouTube videos into platform-native posts for X and LinkedIn. Built in 24 hours; won Best AI Retrieval at HackAI Toronto.',
+    longDescription: `Built in 24 hours at HackAI Toronto, where it won the Best AI Retrieval Project award. Paste an article or a YouTube link and Chameleon pulls the transcript, extracts the key topics, reads the emotional register of the source, and writes posts tuned to each platform's conventions and length limits.
 
-Chameleon is a full-stack AI application that revolutionizes content creation for social media by automatically adapting long-form content (articles, transcripts, videos) into platform-optimized posts for X (Twitter) and LinkedIn. The platform showcases advanced AI capabilities through intelligent topic extraction, emotional context analysis, and platform-specific content adaptation.
-
-The system features a sophisticated AI pipeline that processes content through multiple stages: content ingestion (supporting both text and YouTube video transcripts), intelligent topic extraction using AI to identify key themes, emotional analysis for sentiment and tone detection, platform optimization for each social media platform's unique characteristics, and final post generation with metadata.
-
-Key technical achievements include real-time streaming API for immediate feedback, multi-format support for processing various content types, contextual AI retrieval that understands content deeply, and responsive UI with smooth animations. The platform uses Google Gemini AI for content generation, LangGraph for workflow orchestration, and Supabase for real-time database operations with Row Level Security.
-
-The project demonstrates exceptional engineering skills by delivering a production-ready application with user authentication, database design, AI integration, and full-stack development - all accomplished within the intense 24-hour hackathon timeframe.`,
-    technologies: ['Next.js 15', 'TypeScript', 'FastAPI', 'Python', 'Google Gemini AI', 'LangGraph', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Zustand', 'YouTube Transcript API', 'AI Retrieval'],
+The pipeline is a LangGraph workflow over Gemini with a streaming FastAPI backend, so posts appear as they are generated rather than after a long wait. Next.js frontend, Supabase with row-level security for auth and storage, deployed on Vercel.`,
+    technologies: ['Next.js', 'TypeScript', 'FastAPI', 'LangGraph', 'Gemini', 'Supabase', 'PostgreSQL'],
     githubUrl: 'https://github.com/mcronin4/hackAI-JACM',
     liveUrl: 'https://devpost.com/software/chameleon-qpz6ru',
     demoUrl: 'https://youtu.be/lXXtfYojx7E',
     imageUrl: '/chameleon.png',
     category: 'ml',
     featured: true,
-    year: '2025'
-  },
-
-  {
-    id: 'scrappers-cup-tennis-ladder',
-    title: 'Scrappers Cup - Tennis Ladder Management System',
-    description: 'Full-stack web application for managing tennis tournament ladder rankings with poison ladder system, admin controls, and real-time match tracking.',
-    longDescription: `Developed a comprehensive tennis tournament management system featuring an innovative "poison ladder" ranking algorithm where winners move up to the loser's position, creating dynamic and engaging competition dynamics. The system provides a complete solution for tennis tournaments with sophisticated player management, match tracking, and automated ranking calculations.
-  
-  The application features a robust authentication system using email allowlists with role-based access control, distinguishing between regular viewers and administrators. The admin panel provides comprehensive tournament management capabilities including match result entry with detailed set-by-set scoring, tiebreaker handling, match history management with edit/delete functionality, and player lifecycle management.
-  
-  The core ranking system implements advanced algorithms for maintaining rank integrity, including automatic rank normalization to fix gaps and duplicates, timeline-based ranking reconstruction that replays all historical changes chronologically, and sophisticated conflict resolution when multiple rank adjustments occur. The system handles complex scenarios like player deactivation/reactivation while preserving ranking history.
-  
-  Key technical achievements include a mobile-first responsive design optimized for tournament officials using phones, real-time ranking updates after each match entry, comprehensive testing suite with unit tests for ladder logic and integration tests for complex scenarios, and robust error handling with graceful fallbacks. The platform maintains complete audit trails of all ranking changes and supports manual rank adjustments when needed.
-  
-  The system demonstrates strong software engineering practices with TypeScript for type safety, comprehensive test coverage using Vitest, modular component architecture, and efficient database design with proper foreign key relationships and constraints. Built to handle the complexities of real tournament management while maintaining data integrity and providing an intuitive user experience.`,
-    technologies: ['Next.js', 'React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vitest', 'Row Level Security', 'Email Authentication', 'Responsive Design', 'RESTful APIs', 'Real-time Updates'],
-    githubUrl: 'https://github.com/mcronin4/scrappers-cup', // Add if available
-    liveUrl: '', // Add if deployed
-    demoUrl: 'https://www.loom.com/share/8e413a9c9e2f4c3588f87bc8444447d6?sid=4050dbaf-1314-43f4-8ee3-96ce89ebc5be%5C', // Add if available
-    imageUrl: '/tennis-ladder.png', // You'll need to add this image
-    heroImageUrl: '/scrappers-cup-hero.png', // You'll need to add this image
-    category: 'web',
-    featured: false,
-    year: '2025'
+    year: '2025',
+    recognition: 'HackAI Toronto · Best AI Retrieval',
   },
   {
     id: 'llm-jailbreak-defense',
-    title: 'LLM Jailbreak Defense Research Project',
-    description: 'Published research on improving LLM security by analyzing model activations to defend against jailbreaking attacks.',
-    longDescription: `Conducted cutting-edge research on Large Language Model security as part of QMIND (Queen's Machine Intelligence and Data Science), focusing on developing robust defenses against jailbreaking methods that attempt to bypass AI safety measures. The project involved deep analysis of neural network internals to understand how malicious prompts succeed in circumventing model safeguards.
+    title: 'LLM Jailbreak Defense',
+    tagline: 'Mechanistic interpretability research',
+    description:
+      'Steering refusal-related features inside a language model to make it more robust to jailbreak prompts. Co-authored paper published at CUCAI.',
+    longDescription: `With QMIND, I worked on defending language models against jailbreak prompts by looking inside the model rather than filtering its inputs. Using sparse autoencoders trained with SAELens, we identified features in the model's activations that correlate with refusal behaviour, then boosted or suppressed those features at inference time.
 
-Developed an innovative framework that significantly improves refusal rates for various LLM jailbreaking techniques while maintaining the model's performance on legitimate tasks. The approach centers on analyzing the model's internal activations to identify relevant groups of neurons (features) that are crucial for safety mechanisms. By strategically boosting or suppressing these identified features, the system can better detect and refuse potentially harmful requests without degrading the model's helpful capabilities.
-
-The research involved extensive experimentation with different activation patterns, feature selection algorithms, and intervention strategies. Key technical contributions include novel methods for identifying safety-relevant neural pathways and developing efficient techniques for real-time feature manipulation during inference.
-
-The work culminated in a peer-reviewed paper co-authored and published at CUCAI (Canadian Undergraduate Conference on Artificial Intelligence), demonstrating the practical effectiveness and theoretical significance of the proposed defense mechanisms. This research contributes to the broader field of AI safety and responsible AI development.`,
-    technologies: ['Python', 'PyTorch', 'Transformers', 'Neural Network Analysis', 'Feature Engineering', 'AI Safety', 'Research Methodology', 'Academic Writing'],
-    githubUrl: '', // Add if available
-    imageUrl: '/qmind.png',
+The resulting framework raised refusal rates on jailbreak prompts by roughly 40% while keeping performance on benchmark tasks intact. We built a Gradio demo for steering individual features and watching the output change, and co-authored a paper published at the Canadian Undergraduate Conference on Artificial Intelligence.`,
+    technologies: ['Python', 'PyTorch', 'SAELens', 'Transformers', 'Gradio'],
     heroImageUrl: '/jailbreak_hero.png',
     category: 'research',
     featured: true,
-    year: '2024-2025'
+    year: '2024 – 2025',
+    recognition: 'Published at CUCAI 2025',
   },
   {
-    id: 'portfolio-website',
-    title: 'Personal Portfolio Website',
-    description: 'Modern, responsive portfolio website built with Next.js featuring dynamic content, smooth animations, and advanced filtering.',
-    longDescription: `Designed and developed a modern, fully responsive portfolio website to showcase my projects, experience, and skills. The website represents a complete redesign and migration from a static HTML/CSS site to a dynamic React-based application using Next.js and TypeScript.
+    id: 'qec-2025-snowplow',
+    title: 'Plow Kingston',
+    tagline: 'Snowplow routing simulator',
+    description:
+      "Routes a plow fleet across Kingston's real road network during a live storm simulation. First place in the QEC 2025 programming competition.",
+    longDescription: `Built in a day for the programming category of the Queen's Engineering Competition, where it took first place. The app loads Kingston's actual road network from GeoJSON, runs a storm simulation that keeps depositing snow across the graph, and dispatches plows against it.
 
-The portfolio features a clean, professional design with a dark theme and blue accent colors, optimized for both desktop and mobile viewing. Key technical implementations include a component-based architecture with reusable UI elements, dynamic content management through TypeScript interfaces and data files, and smooth page transitions using Framer Motion.
+Routing uses a finite-horizon greedy policy: a bounded depth-first search that scores candidate paths by road importance, snow depth, and length per unit of time. A Leaflet map shows the plow moving in real time over a snow-depth heatmap, with clearing statistics and turn-by-turn navigation. Next.js frontend, FastAPI backend, deployed on Vercel.`,
+    technologies: ['Next.js', 'TypeScript', 'FastAPI', 'Python', 'Leaflet', 'Graph algorithms'],
+    githubUrl: 'https://github.com/mcronin4/plow_kingston',
+    liveUrl: 'https://plowking.vercel.app/',
+    heroImageUrl: '/plowking.jpg',
+    category: 'other',
+    featured: false,
+    year: '2025',
+    recognition: "Queen's Engineering Competition · First place",
+  },
+  {
+    id: 'micra-content-agent',
+    title: 'MiCRA',
+    tagline: 'Multimodal content repurposing agent',
+    description:
+      'Takes transcripts, articles, video, and audio and produces platform-specific outputs, with a consistency engine that checks generated text against every source.',
+    longDescription: `I led a five-person QMIND team building MiCRA for Project X, a Toronto AI and data consulting firm. It takes long-form inputs (transcripts from YouTube, Zoom, or Whisper, articles, video, audio, and images) and turns them into platform-specific outputs like LinkedIn posts, emails, tweet threads, and meeting notes.
 
-Advanced features include intelligent project filtering by category and technology tags, allowing visitors to find relevant projects easily. The site includes comprehensive sections for projects (with detailed modals), work experience (with timeline layouts), skills categorization, and contact information with social media integration.
+The interesting part is the consistency layer. Most "prompt in, content out" tools start hallucinating as soon as you give them several sources. MiCRA extracts entities across every input, aligns and normalizes terminology between them, and checks generated text against the sources before it leaves the pipeline. Generation runs on Gemini through a template-driven prompt builder, and a human-in-the-loop editor step closes the loop.`,
+    technologies: ['Python', 'Gemini', 'NLP', 'Entity extraction', 'Next.js'],
+    githubUrl: 'https://github.com/mcronin4/MiCRA',
+    liveUrl: 'https://mi-cra.vercel.app/',
+    heroImageUrl: '/system_design.png',
+    category: 'ml',
+    featured: false,
+    year: '2025',
+  },
+  {
+    id: 'scrappers-cup-tennis-ladder',
+    title: 'Scrappers Cup',
+    tagline: 'Tennis ladder manager',
+    description:
+      'Rankings and match tracking for a tennis ladder, with a "poison ladder" system where winners take the loser\'s rung and a phone-first admin panel.',
+    longDescription: `A ranking and match-tracking app for a tennis ladder. Winners take the loser's rung, which keeps the ladder moving and makes every match matter.
 
-The website demonstrates modern web development practices including responsive design with Tailwind CSS, TypeScript for type safety, component composition patterns, SEO optimization, and performance optimization for fast loading times. The project showcases both technical expertise and design sensibilities, serving as both a functional portfolio and a demonstration of front-end development capabilities.
-
-Additional features include animated navbar with hover effects, project cards with technology badges, modal system for detailed project views, contact form integration, and smooth scrolling animations throughout the site.`,
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design', 'SEO', 'Git', 'Vercel', 'Component Architecture'],
-    githubUrl: 'https://github.com/mcronin4/mcronin4.github.io',
-    liveUrl: 'https://michael-cronin.com',
-    imageUrl: '/icon.png',
-    heroImageUrl: '/website_hero.png',
+Admins enter set-by-set scores from their phones. The ranking engine normalizes gaps and duplicates, replays the full match history chronologically to rebuild standings after an edit, and handles players dropping out and rejoining without losing their history. Next.js and Supabase with an email-allowlist auth model, with unit and integration tests in Vitest.`,
+    technologies: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Vitest'],
+    githubUrl: 'https://github.com/mcronin4/scrappers-cup',
+    demoUrl: 'https://www.loom.com/share/8e413a9c9e2f4c3588f87bc8444447d6?sid=4050dbaf-1314-43f4-8ee3-96ce89ebc5be',
     category: 'web',
     featured: false,
-    year: '2024-2025'
+    year: '2025',
   },
   {
     id: 'crossword-solver',
-    title: 'Crossword Clue Solver RNN Extension',
-    description: 'AI-powered crossword clue solver with Chrome extension integration for the NYT Crossword.',
-    longDescription: `From my love of crosswords, I decided to make a crossword clue solver that would give me hints if I was stuck on a clue (without just searching up the answer). Using Tensorflow, I trained a model by transferring learning from BERT, and retraining extra layers with 750,000+ clue-answer pairs. I used Flask as a server to run inferences on. To integrate my model with the NYT Crossword, I developed a Chrome Extension using HTML, CSS, and Javascript to make a small UI interface that allows you to either type in a clue, or auto-load the clue you currently have selected.`,
-    technologies: ['Python', 'TensorFlow', 'BERT', 'Flask', 'Chrome Extension', 'HTML', 'CSS', 'JavaScript'],
+    title: 'Crossword Clue Solver',
+    tagline: 'BERT model with a Chrome extension',
+    description:
+      'A clue solver fine-tuned from BERT on 750,000 clue-answer pairs, wired into the NYT Crossword through a Chrome extension for hints without spoilers.',
+    longDescription: `I do the NYT crossword most mornings and wanted hints that stop short of just giving the answer. I fine-tuned a BERT-based model in TensorFlow on more than 750,000 clue-answer pairs and served it from a small Flask API.
+
+The Chrome extension reads the clue you currently have selected on the NYT site (or takes one you type in) and shows the model's guesses in a small panel, so you can nudge yourself without opening a search engine.`,
+    technologies: ['Python', 'TensorFlow', 'BERT', 'Flask', 'Chrome extension', 'JavaScript'],
     githubUrl: 'https://github.com/mcronin4/Crossword_Solver_RNN_Extension',
-    imageUrl: '/crossword.jpg',
+    heroImageUrl: '/crossword_hero.png',
     category: 'ml',
     featured: false,
     year: '2024',
-    heroImageUrl: '/crossword_hero.png'
-  },
-  {
-    id: 'homebase',
-    title: 'Homebase - Student Housing Social Platform',
-    description: 'Social media app connecting students with landlords to help find houses, built with Qt and MySQL.',
-    longDescription: `Developed a social media app designed to connect students with landlords to help find houses, as part of a group in CMPE 320 (Fundamentals of Software Development). We used Qt Creator to support the front end and a MySQL database to support the backend. The bulk of the code was written in C++, utilizing object oriented programming. Embedded SQL was used to allow for dynamic querying and manipulation of data. The team created UML Class, Sequence, State Chart, and Use Case diagrams to describe the system's software architecture. In addition, the team utilized Jira and BitBucket, as well as created Requirements Analysis Documents (RAD) and System Design Documents (SDD) to simulate the software development process.`,
-    technologies: ['C++', 'Qt', 'QML', 'MySQL', 'SQL'],
-    githubUrl: 'https://github.com/mcronin4/homebase',
-    imageUrl: '/homebase.jpg',
-    category: 'web',
-    featured: false,
-    year: '2023',
-    heroImageUrl: '/homebase_hero.png'
   },
   {
     id: 'crane-controller',
-    title: 'Remote-Controlled Precision Crane',
-    description: 'Award-winning remote-controlled crane built for the Ontario Engineering Competition.',
-    longDescription: `Built a remote-controlled crane as part of the Ontario Engineering Competition (of which I qualified for by winning the Queen's Engineering Competition). Given a very limited set of materials, the task was to build a remote-controlled crane that could pick up staples with precision, lift them up to a tall height, and drop them into a bucket. We had 8 hours to complete this task. As a team, we brainstormed and created many models/ideas to test before we started creation. This included Python/MATLAB models for load analysis, unit tests for Arduino scripts, and CAD models. After creating a decision matrix to pick our model, we constructed our machine based directly on our CAD model. Our design tested perfectly, achieving all required tasks and gaining some bonus points. After submitting a presentation and report, our design placed very highly in the competition and we were very proud in our result and to represent Queen's well on the provincial stage.`,
+    title: 'Remote-Controlled Crane',
+    tagline: 'Ontario Engineering Competition',
+    description:
+      'An eight-hour build of a remote-controlled crane that picks up staples with precision, lifts them, and drops them into a bucket, from a fixed kit of materials.',
+    longDescription: `I qualified for the Ontario Engineering Competition by winning the Queen's Engineering Competition, and this was the provincial challenge: with a limited kit of materials and eight hours, build a remote-controlled crane that can pick up staples with precision, lift them to height, and drop them into a bucket.
+
+We modelled loads in Python and MATLAB, wrote unit tests for the Arduino control code, and built a CAD model before touching any materials. After a decision matrix to choose between designs, we built directly from the CAD model. The crane completed every required task with bonus points, and the design placed highly after the presentation and report.`,
     technologies: ['Arduino', 'SOLIDWORKS', 'Python', 'MATLAB'],
-    imageUrl: '/crane.jpg',
+    heroImageUrl: '/crane_hero.jpg',
     category: 'other',
     featured: false,
     year: '2024',
-    heroImageUrl: '/crane_hero.png'
   },
   {
     id: 'system-controller',
-    title: 'Black Box System Controller',
-    description: 'Top-of-class controller design for unknown transfer function system using advanced control theory.',
-    longDescription: `As part of a design course, we were given a black box system with an unknown transfer function that took input functions to unpredictable output functions. The only information available was samples of the output function at regular intervals. The task was to test the system and design a controller to ensure that the output of the system matched the input function exactly. Key tasks to do this included: i) proving time invariance of the system ii) estimating noise and filtering it out (used Fourier Analysis to justify low-pass filter) iii) creating a Bode plot based on an efficient algorithm to test different frequencies iv) estimating a corresponding transfer function and implementing feed-forward compensation to ensure the system was minimum phase v) designing and testing a PID controller. The controller exceeded all target specifications and was deemed top of the class.`,
-    technologies: ['MATLAB', 'Fourier Analysis', 'Simulink', 'PID Control'],
-    imageUrl: '/controller.jpg',
+    title: 'Black Box Controller',
+    tagline: 'System identification and PID design',
+    description:
+      'Identified an unknown plant from sampled outputs alone, then designed a feed-forward and PID controller that exceeded every target spec. Top of the class.',
+    longDescription: `We were handed a black box with an unknown transfer function and could only observe samples of its output at regular intervals. The task was to characterise it well enough to design a controller that makes the output track the input exactly.
+
+That meant proving the system was time invariant, estimating the noise and justifying a low-pass filter with Fourier analysis, building a Bode plot with an efficient frequency sweep, fitting a transfer function and adding feed-forward compensation to make the system minimum phase, and finally designing and tuning a PID controller. The controller exceeded every target specification and was ranked top of the class.`,
+    technologies: ['MATLAB', 'Simulink', 'Fourier analysis', 'PID control'],
+    heroImageUrl: '/blackbox_hero.png',
     category: 'research',
     featured: false,
     year: '2023',
-    heroImageUrl: '/blackbox_hero.png'
   },
-  {
-    id: 'hurricane-drone-simulation',
-    title: 'Hurricane Monitoring Drone Simulation',
-    description: 'MATLAB algorithm simulating autonomous drone deployment for hurricane data collection.',
-    longDescription: `Created a MATLAB algorithm to simulate drones dispersing themselves around a moving hurricane to collect key meteorological data. Based on a moving density map, I used Lloyd's algorithm and k-means clustering to simulate the drones dispersing across the hurricane to optimize their position according to hurricane intensity. I used this algorithm to investigate three different real world solutions to this, including one expensive option with few drones but large communication radius, and another with many cheaper drones with small communication radius. Changing the parameters of this algorithm allowed for these real-world solutions to be tested and evaluated.`,
-    technologies: ['MATLAB', 'k-means clustering', 'Lloyd\'s Algorithm'],
-    imageUrl: '/hurricane.jpg',
-    category: 'research',
-    featured: false,
-    year: '2022',
-    heroImageUrl: '/hurricane_hero.png'
-  }
-
 ];
 
-export const featuredProjects = projects.filter(project => project.featured); 
+export const featuredProjects = projects.filter((project) => project.featured);

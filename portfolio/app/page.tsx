@@ -1,79 +1,113 @@
-'use client';
-
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import HeroSection from '../components/Home/HeroSection';
-import FeaturedProjects from '../components/Home/FeaturedProjects';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import ProjectCard from '../components/ProjectCard';
 import { personalInfo } from '../data/personal';
-import { skills } from '../data/skills';
-import { Card, CardContent } from '../components/UI/Card';
-import { Button } from '../components/UI/Button';
-import { MapPin, GraduationCap, Award, Heart } from 'lucide-react';
+import { featuredProjects } from '../data/projects';
+import { experiences } from '../data/experience';
+
+const contactLinks = [
+  { label: 'Email', href: `mailto:${personalInfo.email}`, external: false },
+  { label: 'GitHub', href: `https://github.com/${personalInfo.github}`, external: true },
+  { label: 'LinkedIn', href: `https://www.linkedin.com/in/${personalInfo.linkedin}`, external: true },
+];
 
 export default function HomePage() {
-  const [typewriterComplete, setTypewriterComplete] = useState(false);
+  const roles = experiences.slice(0, 3);
 
   return (
-    <div className="min-h-screen">
-      {/* Full-screen Hero Section with Typewriter and embedded content */}
-      <HeroSection onTypewriterComplete={setTypewriterComplete}>
-        {/* Two-column layout that fades in after typewriter completes */}
-        {typewriterComplete && (
-          <div className="flex flex-col lg:flex-row gap-12 items-start max-w-6xl mx-auto px-8">
-            {/* Left Column - About Me */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex-1 min-w-0 text-center lg:text-left flex flex-col justify-between"
-            >
-              <h2 className="text-2xl font-bold text-white mb-4">About Me</h2>
-              <div>
-                <div className="w-48 h-48 mx-auto lg:mx-0 mb-6 overflow-hidden rounded-xl">
-                  <img 
-                    src="/headshot.jpg" 
-                    alt="Michael Cronin" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-slate-300 mb-4 leading-relaxed">
-                  I'm a student at Queen's University studying Applied Mathematics & Engineering, 
-                  with a passion for data science, machine learning, and software development.
-                  I love tackling complex problems and building solutions that make a real impact.
-                </p>
-                <p className="text-slate-300 mb-6 leading-relaxed">
-                  Outside of academics, I enjoy outdoor adventures, hackathons, and volunteering. I'm always eager to learn new things, collaborate with others, and take on challenges that push me to grow.
-                </p>
-                <a 
-                  href="/about"
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
-                >
-                  Learn More About Me →
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Right Column - Featured Projects */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex-1 min-w-0 text-center lg:text-left flex flex-col justify-between"
-            >
-              <h2 className="text-2xl font-bold text-white mb-4">Featured Projects</h2>
-              <div>
-                <FeaturedProjects />
-                <a 
-                  href="/projects"
-                  className="inline-flex items-center mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
-                >
-                  View All Projects →
-                </a>
-              </div>
-            </motion.div>
+    <div>
+      {/* Hero */}
+      <section className="wrap pt-16 pb-16 sm:pt-28 sm:pb-24">
+        <div className="grid gap-12 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="max-w-2xl">
+            <p className="eyebrow rise mb-6">
+              {personalInfo.title} · {personalInfo.location}
+            </p>
+            <h1 className="display rise rise-1 text-[2.9rem] sm:text-6xl lg:text-7xl">
+              Hi, I&rsquo;m Michael.
+              <br />
+              I like to <em>solve problems</em>.
+            </h1>
+            <p className="rise rise-2 mt-8 max-w-xl text-lg leading-relaxed text-ink-2">
+              {personalInfo.intro}
+            </p>
+            <ul className="rise rise-3 mt-8 flex flex-wrap gap-x-6 gap-y-2">
+              {contactLinks.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    target={l.external ? '_blank' : undefined}
+                    rel={l.external ? 'noopener noreferrer' : undefined}
+                    className="link inline-flex items-center gap-0.5 text-sm"
+                  >
+                    {l.label}
+                    {l.external && <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        )}
-      </HeroSection>
+
+          <div className="rise rise-2 md:justify-self-end">
+            <div className="card-media aspect-[4/5] w-52 sm:w-60 lg:w-72">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/headshot.jpg"
+                alt="Michael Cronin"
+                className="h-full w-full object-cover"
+                fetchPriority="high"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Work, one line per role */}
+      <section className="wrap">
+        <div className="rule flex items-baseline justify-between gap-6 pt-8">
+          <p className="eyebrow">Work</p>
+          <Link href="/experience" className="link text-sm">
+            Full history →
+          </Link>
+        </div>
+        <ol className="mt-4">
+          {roles.map((exp) => (
+            <li
+              key={exp.id}
+              className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:items-baseline sm:gap-8"
+            >
+              <p className="eyebrow">
+                {exp.start} – {exp.end}
+              </p>
+              <p className="text-ink">
+                {exp.link ? (
+                  <a href={exp.link} target="_blank" rel="noopener noreferrer" className="link font-medium">
+                    {exp.company}
+                  </a>
+                ) : (
+                  <span className="font-medium">{exp.company}</span>
+                )}
+                <span className="text-muted"> · {exp.role}</span>
+              </p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* Selected projects */}
+      <section className="wrap pt-20 sm:pt-28">
+        <div className="mb-10 flex items-end justify-between gap-6">
+          <h2 className="display text-4xl sm:text-5xl">Selected projects</h2>
+          <Link href="/projects" className="link text-sm">
+            All projects →
+          </Link>
+        </div>
+        <div className="grid gap-x-8 gap-y-14 sm:grid-cols-2">
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} size="large" />
+          ))}
+        </div>
+      </section>
     </div>
   );
-} 
+}

@@ -1,33 +1,56 @@
+export type ProjectCategory = 'ml' | 'web' | 'research' | 'other';
+
+export const categoryLabels: Record<ProjectCategory, string> = {
+  ml: 'AI / ML',
+  web: 'Web',
+  research: 'Research',
+  other: 'Engineering',
+};
+
 export interface Project {
   id: string;
   title: string;
+  /** Short qualifier shown next to the title, e.g. "AI news platform". */
+  tagline?: string;
+  /** One or two sentences for cards and the detail page lead. */
   description: string;
+  /** Detail page body. Paragraphs separated by blank lines. */
   longDescription: string;
+  /** Optional bullet points shown under the body. */
+  highlights?: string[];
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
   demoUrl?: string;
-  imageUrl: string;
+  /** Logo or square mark. Rendered contained on a tinted background. */
+  imageUrl?: string;
+  /** Wide screenshot or photo. Rendered as a cover image when present. */
   heroImageUrl?: string;
-  category: 'web' | 'ml' | 'mobile' | 'research' | 'other';
+  category: ProjectCategory;
   featured: boolean;
   year: string;
+  /** Award, competition result, or publication, shown as a small badge. */
+  recognition?: string;
 }
 
 export interface Experience {
   id: string;
   company: string;
-  position: string;
-  duration: string;
-  description: string;
-  skills: string[];
+  role: string;
+  start: string;
+  end: string;
+  location?: string;
+  summary: string;
+  highlights: string[];
+  tags: string[];
+  link?: string;
   current?: boolean;
 }
 
-export interface Skill {
+export interface Interest {
   name: string;
-  category: 'language' | 'framework' | 'tool' | 'database';
-  proficiency: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  description: string;
+  image: string;
 }
 
 export interface PersonalInfo {
@@ -38,24 +61,24 @@ export interface PersonalInfo {
   github: string;
   linkedin: string;
   location: string;
+  /** One-line summary used in metadata. */
   bio: string;
-  detailedBio: string;
+  /** Hero paragraph on the home page. */
+  intro: string;
+  /** Longer first-person copy for the About page. Paragraphs separated by blank lines. */
+  about: string;
   education: {
     degree: string;
     school: string;
-    description: string;
-    gpa: string;
-    relevantCourses: string[];
+    years: string;
+    notes: string[];
   };
-  hobbies: {
-    name: string;
-    description: string;
-  }[];
-  awards: string[];
+  awards: { title: string; detail: string }[];
+  interests: Interest[];
 }
 
 export interface NavItem {
   name: string;
   href: string;
   external?: boolean;
-} 
+}

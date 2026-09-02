@@ -2,60 +2,71 @@ import { PersonalInfo } from '../types';
 
 export const personalInfo: PersonalInfo = {
   name: 'Michael Cronin',
-  title: 'Applied Mathematics & Engineering Student',
+  title: 'Software Engineer at Exa',
   email: 'michael.cronin@queensu.ca',
   phone: '+1 416-276-6120',
   github: 'mcronin4',
   linkedin: 'michael-cronin-20mjc8',
-  location: 'Queen\'s University, Kingston, ON',
-  bio: 'Applied Mathematics and Engineering student passionate about solving problems through code and mathematics. Currently recruiting for full time software engineering roles for 2026.',
-  detailedBio: `I study Applied Mathematics and Engineering at Queen's University, nicknamed "Apple Math", in the Computing and Communications stream. It is quite a unique program where half of my courses are taken with computer engineers (algorithms, data structures, OOP, software development, etc.), and the other half are taken with math majors (real/complex analysis, probability, stochastics, information theory, etc.). Apple Math graduates enter the workforce with as much technical expertise as computer engineers, and having taken more math courses than math majors.`,
+  location: 'San Francisco, CA',
+
+  bio: "Software engineer at Exa in San Francisco. Previously a forward deployed engineer at SaxeCap, an AI private equity firm. Applied Mathematics & Engineering, Queen's University.",
+
+  intro: `I'm a software engineer at Exa in San Francisco, where we're building the search engine for AI. Before that I was a forward deployed engineer at SaxeCap, an AI private equity firm. I studied Applied Mathematics & Engineering at Queen's.`,
+
+  about: `I'm a software engineer at Exa in San Francisco. Exa is the search engine built for AI: it helps AI applications find and use the most relevant, up-to-date information from the web.
+
+Before Exa I was a forward deployed engineer at SaxeCap, an AI private equity firm. Forward deployed means you sit with the company that has the problem, and ship the system inside their day-to-day operations. It is a good way to learn that the model is rarely the hard part.
+
+I graduated from Queen's University in 2026 in Applied Mathematics & Engineering, a program that splits its time between computer engineering and a math major's worth of analysis, probability, and information theory. Outside of work I paddle, ski, play volleyball, and do the NYT crossword most mornings.`,
+
   education: {
-    degree: 'Applied Mathematics and Engineering (Computing and Communications)',
-    school: 'Queen\'s University',
-    description: 'A unique program combining computer engineering coursework with advanced mathematics.',
-    gpa: '4.18/4.30, including perfect scores in all math courses, earning a $23 400 scholarship',
-    relevantCourses: [
-      'Data Structures & Algorithms',
-      'Real & Complex Analysis',
-      'Machine Learning',
-      'Software Development',
-      'Probability & Statistics',
-      'Information Theory',
-      'Linear Algebra',
-      'Object-Oriented Programming'
-    ]
+    degree: 'B.A.Sc., Applied Mathematics & Engineering (Computing & Communications)',
+    school: "Queen's University, Smith School of Engineering",
+    years: 'Sep 2021 – May 2026',
+    notes: [
+      'Medal in Mathematics & Engineering for the highest standing in the graduating class.',
+    ],
   },
-  hobbies: [
+
+  awards: [
     {
-      name: 'Camping / Outdoors',
-      description: 'Love exploring nature through hiking, canoeing, and wilderness adventures. I have paddled >800km, including a 26-day trip through Northern Quebec on the Moisie River.'
+      title: 'Medal in Mathematics & Engineering',
+      detail: "Queen's University medal for the highest standing in the graduating class, 2026.",
     },
     {
-      name: 'Volunteering',
-      description: 'Passionate about giving back to the community through various volunteer initiatives. Helped oversee 20 engineering design teams and ran the Queen\'s Engineering Orientation Week.'
+      title: 'Nellie & Ralph Jeffery Award in Mathematics',
+      detail: 'Highest standing in mathematics courses across the program.',
     },
     {
-      name: 'Coding / Hackathons',
-      description: 'I love to build things. I love exploring new projects and hackathons are a great excuse to spend days grinding out a project. Achievements include winning "Best AI Retrieval" at HackAI and being a finalist at Hack the North.'
+      title: "Queen's Engineering Competition, first place",
+      detail: 'Programming category, 2025. Qualified for the Ontario Engineering Competition.',
+    },
+    {
+      title: 'Best AI Retrieval Project, HackAI Toronto',
+      detail: 'For Chameleon, built in 24 hours.',
+    },
+  ],
+
+  interests: [
+    {
+      name: 'Canoe tripping',
+      description: 'Over 800 km paddled, including a 26-day whitewater expedition down the Moisie River in northern Quebec.',
+      image: '/canoeing.jpg',
     },
     {
       name: 'Skiing',
-      description: 'I love to ski, having skied in the French Alps, and the Rockies. I am a CSA-certified instructor and have taught skiing to beginners.'
+      description: 'CSIA-certified instructor. French Alps, the Rockies, and a lot of beginners taught to stop.',
+      image: '/skiing.jpg',
     },
     {
       name: 'Volleyball',
-      description: 'Played competetive volleyball in high school and club programs, co-captaining a top 5 team in Canada. Continue to play casually 2+ times a week.'
+      description: 'Co-captained a top-five club team in Canada. Still play a couple of times a week.',
+      image: '/volleyball.jpg',
     },
     {
-      name: 'Crosswords / Puzzles',
-      description: 'I love puzzles. I solve (or try to solve!) the NYT crossword every morning.'
-    }
+      name: 'Crosswords',
+      description: 'The NYT crossword most mornings. Built a clue solver so I could get hints without spoilers.',
+      image: '/crossword_hero.png',
+    },
   ],
-  awards: [
-    'Nellie & Ralph Jeffery Award in Mathematics (for highest GPA in Math courses)',
-    'Science Jacket Award (for the single person who has contributed most to the good name of Queen\'s in first year)',
-    'Queen\'s Engineering Competition Winner (first place achievement)',
-    'Best AI Retrieval Project at HackAI Toronto (Canada\'s most competitive hackathon)'
-  ]
-}; 
+};
